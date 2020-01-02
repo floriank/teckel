@@ -86,9 +86,9 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>Works just like <code>Teckel::Operation</code>, but wraps <code>output</code> and <code>error</code> into a <code>Teckel::Result</code>.</p>
+<p>Works just like <span class='object_link'><a href="../Operation.html" title="Teckel::Operation (module)">Teckel::Operation</a></span>, but wraps <code>output</code> and <code>error</code> into a <span class='object_link'><a href="../Result.html" title="Teckel::Result (class)">Teckel::Result</a></span>.</p>
 
-<p>A <code>Teckel::Result</code> given as <code>input</code> will get unwrapped, so that the original <code>value</code> gets passed to your Operation code.</p>
+<p>If a <span class='object_link'><a href="../Result.html" title="Teckel::Result (class)">Teckel::Result</a></span> is given as <code>input</code>, it will get unwrapped, so that the original <span class='object_link'><a href="../Result.html#value-instance_method" title="Teckel::Result#value (method)">Result#value</a></span> gets passed to your Operation code.</p>
 
 
   </div>
@@ -108,13 +108,12 @@
   <span class='id identifier rubyid_error'>error</span>  <span class='const'>Types</span><span class='op'>::</span><span class='const'>Hash</span><span class='period'>.</span><span class='id identifier rubyid_schema'>schema</span><span class='lparen'>(</span><span class='label'>message:</span> <span class='const'>Types</span><span class='op'>::</span><span class='const'>String</span><span class='comma'>,</span> <span class='label'>errors:</span> <span class='const'>Types</span><span class='op'>::</span><span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_of'>of</span><span class='lparen'>(</span><span class='const'>Types</span><span class='op'>::</span><span class='const'>Hash</span><span class='rparen'>)</span><span class='rparen'>)</span>
 
   <span class='comment'># @param [Hash&lt;name: String, age: Integer&gt;]
-</span>  <span class='comment'># @return [User | Hash&lt;message: String, errors: [Hash]&gt;]
+</span>  <span class='comment'># @return [User,Hash&lt;message: String, errors: [Hash]&gt;]
 </span>  <span class='kw'>def</span> <span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='id identifier rubyid_input'>input</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_user'>user</span> <span class='op'>=</span> <span class='const'>User</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='label'>name:</span> <span class='id identifier rubyid_input'>input</span><span class='lbracket'>[</span><span class='symbol'>:name</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>age:</span> <span class='id identifier rubyid_input'>input</span><span class='lbracket'>[</span><span class='symbol'>:age</span><span class='rbracket'>]</span><span class='rparen'>)</span>
     <span class='kw'>if</span> <span class='id identifier rubyid_user'>user</span><span class='period'>.</span><span class='id identifier rubyid_safe'>safe</span>
-      <span class='comment'># exits early with success, prevents any further execution
-</span>      <span class='id identifier rubyid_success!'>success!</span><span class='lparen'>(</span><span class='id identifier rubyid_user'>user</span><span class='rparen'>)</span>
-    <span class='kw'>else</span>
+      <span class='id identifier rubyid_success!'>success!</span><span class='lparen'>(</span><span class='id identifier rubyid_user'>user</span><span class='rparen'>)</span> <span class='comment'># exits early with success, prevents any further execution
+</span>    <span class='kw'>else</span>
       <span class='id identifier rubyid_fail!'>fail!</span><span class='lparen'>(</span><span class='label'>message:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Could not safe User</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>errors:</span> <span class='id identifier rubyid_user'>user</span><span class='period'>.</span><span class='id identifier rubyid_errors'>errors</span><span class='rparen'>)</span>
     <span class='kw'>end</span>
   <span class='kw'>end</span>
@@ -239,7 +238,7 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Jan  2 20:05:07 2020 by
+  Generated on Thu Jan  2 21:44:54 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.22 (ruby-2.6.3).
 </div>

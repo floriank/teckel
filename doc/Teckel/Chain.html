@@ -94,9 +94,9 @@
 </li><li>
 <p>Any failure will stop the execution chain (none of the later steps is called).</p>
 </li><li>
-<p>All Operations (steps) must behave like <code>Teckel::Operation::Results</code> and return a result object like <code>Teckel::Result</code></p>
+<p>All Operations (steps) must behave like <span class='object_link'><a href="Operation/Results.html" title="Teckel::Operation::Results (module)">Teckel::Operation::Results</a></span> and return a result object like <span class='object_link'><a href="Result.html" title="Teckel::Result (class)">Result</a></span></p>
 </li><li>
-<p>A failure response is wrapped into a <code>Teckel::Chain::StepFailure</code> giving additional information about which step failed</p>
+<p>A failure response is wrapped into a <span class='object_link'><a href="Chain/StepFailure.html" title="Teckel::Chain::StepFailure (class)">StepFailure</a></span> giving additional information about which step failed</p>
 </li></ul>
 
 
@@ -195,10 +195,6 @@
     
       <li><span class='object_link'><a href="Operation/Results.html" title="Teckel::Operation::Results (module)">Operation::Results</a></span></li>
     
-      <li><span class='object_link'><a href="Result.html" title="Teckel::Result (class)">Result</a></span></li>
-    
-      <li><span class='object_link'><a href="Chain/StepFailure.html" title="Teckel::Chain::StepFailure (class)">StepFailure</a></span></li>
-    
   </ul>
 
 </div><h2>Defined Under Namespace</h2>
@@ -274,17 +270,17 @@
       <pre class="lines">
 
 
+176
 177
 178
 179
 180
 181
 182
-183
-184</pre>
+183</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 177</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 176</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_included'>included</span><span class='lparen'>(</span><span class='id identifier rubyid_receiver'>receiver</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_receiver'>receiver</span><span class='period'>.</span><span class='id identifier rubyid_extend'>extend</span>         <span class='const'><span class='object_link'><a href="Chain/ClassMethods.html" title="Teckel::Chain::ClassMethods (module)">ClassMethods</a></span></span>
@@ -304,7 +300,7 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Jan  2 20:05:07 2020 by
+  Generated on Thu Jan  2 21:44:54 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.22 (ruby-2.6.3).
 </div>

@@ -510,7 +510,7 @@
 </pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 212</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 215</span>
 
 </pre>
     </td>
@@ -567,7 +567,7 @@
 </pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 228</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 231</span>
 
 </pre>
     </td>
@@ -624,7 +624,7 @@
 </pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 90</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 93</span>
 
 </pre>
     </td>
@@ -681,7 +681,7 @@
 </pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 106</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 109</span>
 
 </pre>
     </td>
@@ -738,7 +738,7 @@
 </pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 158</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 161</span>
 
 </pre>
     </td>
@@ -795,7 +795,7 @@
 </pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 174</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 177</span>
 
 </pre>
     </td>
@@ -874,12 +874,12 @@
       <pre class="lines">
 
 
-270
-271
-272</pre>
+273
+274
+275</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 270</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 273</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='id identifier rubyid_input'>input</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_call!'>call!</span><span class='lparen'>(</span><span class='id identifier rubyid_input'>input</span><span class='rparen'>)</span>
@@ -953,16 +953,16 @@
       <pre class="lines">
 
 
-220
-221
-222
 223
 224
 225
-226</pre>
+226
+227
+228
+229</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 220</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 223</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_error'>error</span><span class='lparen'>(</span><span class='id identifier rubyid_klass'>klass</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='ivar'>@error_class</span> <span class='kw'>if</span> <span class='ivar'>@error_class</span>
@@ -1003,8 +1003,8 @@
   <span class='id identifier rubyid_include'>include</span> <span class='const'><span class='object_link'><a href="../../Teckel.html" title="Teckel (module)">Teckel</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Operation.html" title="Teckel::Operation (module)">Operation</a></span></span>
 
   <span class='kw'>class</span> <span class='const'><span class='object_link'><a href="../Error.html" title="Teckel::Error (class)">Error</a></span></span>
-    <span class='comment'># ....
-</span>  <span class='kw'>end</span>
+    <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>**</span><span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span>
+  <span class='kw'>end</span>
 
   <span class='comment'># MyOperation.call(&quot;foo&quot;, &quot;bar&quot;) # -&gt; Error.new(&quot;foo&quot;, &quot;bar&quot;)
 </span>  <span class='id identifier rubyid_error_constructor'>error_constructor</span> <span class='symbol'>:new</span>
@@ -1023,7 +1023,7 @@
         <span class='name'>sym_or_proc</span>
       
       
-        <span class='type'>(<tt>Symbol|#<span class='object_link'><a href="#call-instance_method" title="Teckel::Operation::ClassMethods#call (method)">call</a></span></tt>)</span>
+        <span class='type'>(<tt>Symbol</tt>, <tt>#<span class='object_link'><a href="#call-instance_method" title="Teckel::Operation::ClassMethods#call (method)">call</a></span></tt>)</span>
       
       
       
@@ -1031,7 +1031,7 @@
         <div class='inline'><ul><li>
 <p>Either a <code>Symbol</code> representing the <em>public</em> method to call on the <code>error</code> class.</p>
 </li><li>
-<p>Or a callable (like a <code>Proc</code>).</p>
+<p>Or anything that response to <code>#call</code> (like a <code>Proc</code>).</p>
 </li></ul>
 </div>
       
@@ -1064,9 +1064,6 @@
       <pre class="lines">
 
 
-254
-255
-256
 257
 258
 259
@@ -1074,10 +1071,13 @@
 261
 262
 263
-264</pre>
+264
+265
+266
+267</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 254</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 257</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_error_constructor'>error_constructor</span><span class='lparen'>(</span><span class='id identifier rubyid_sym_or_proc'>sym_or_proc</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='ivar'>@error_constructor</span> <span class='kw'>if</span> <span class='ivar'>@error_constructor</span>
@@ -1159,16 +1159,16 @@
       <pre class="lines">
 
 
-98
-99
-100
 101
 102
 103
-104</pre>
+104
+105
+106
+107</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 98</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 101</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_input'>input</span><span class='lparen'>(</span><span class='id identifier rubyid_klass'>klass</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='ivar'>@input_class</span> <span class='kw'>if</span> <span class='ivar'>@input_class</span>
@@ -1213,8 +1213,8 @@
   <span class='id identifier rubyid_include'>include</span> <span class='const'><span class='object_link'><a href="../../Teckel.html" title="Teckel (module)">Teckel</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Operation.html" title="Teckel::Operation (module)">Operation</a></span></span>
 
   <span class='kw'>class</span> <span class='const'>Input</span>
-    <span class='comment'># ...
-</span>  <span class='kw'>end</span>
+    <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>name:</span><span class='comma'>,</span> <span class='label'>age:</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span>
+  <span class='kw'>end</span>
 
   <span class='comment'># If you need more control over how to build a new +Input+ instance
 </span>  <span class='comment'># MyOperation.call(name: &quot;Bob&quot;, age: 23) # -&gt; Input.new(name: &quot;Bob&quot;, age: 23)
@@ -1232,8 +1232,8 @@
   <span class='id identifier rubyid_include'>include</span> <span class='const'><span class='object_link'><a href="../../Teckel.html" title="Teckel (module)">Teckel</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Operation.html" title="Teckel::Operation (module)">Operation</a></span></span>
 
   <span class='kw'>class</span> <span class='const'>Input</span>
-    <span class='comment'># ...
-</span>  <span class='kw'>end</span>
+    <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>**</span><span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span>
+  <span class='kw'>end</span>
 
   <span class='comment'># If you need more control over how to build a new +Input+ instance
 </span>  <span class='comment'># MyOperation.call(&quot;foo&quot;, opt: &quot;bar&quot;) # -&gt; Input.new(name: &quot;foo&quot;, opt: &quot;bar&quot;)
@@ -1251,7 +1251,7 @@
         <span class='name'>sym_or_proc</span>
       
       
-        <span class='type'>(<tt>Symbol|#<span class='object_link'><a href="#call-instance_method" title="Teckel::Operation::ClassMethods#call (method)">call</a></span></tt>)</span>
+        <span class='type'>(<tt>Symbol</tt>, <tt>#<span class='object_link'><a href="#call-instance_method" title="Teckel::Operation::ClassMethods#call (method)">call</a></span></tt>)</span>
       
       
       
@@ -1259,7 +1259,7 @@
         <div class='inline'><ul><li>
 <p>Either a <code>Symbol</code> representing the <em>public</em> method to call on the <code>input</code> class.</p>
 </li><li>
-<p>Or a callable (like a <code>Proc</code>).</p>
+<p>Or anything that response to <code>#call</code> (like a <code>Proc</code>).</p>
 </li></ul>
 </div>
       
@@ -1292,9 +1292,6 @@
       <pre class="lines">
 
 
-146
-147
-148
 149
 150
 151
@@ -1302,10 +1299,13 @@
 153
 154
 155
-156</pre>
+156
+157
+158
+159</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 146</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 149</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_input_constructor'>input_constructor</span><span class='lparen'>(</span><span class='id identifier rubyid_sym_or_proc'>sym_or_proc</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='ivar'>@input_constructor</span> <span class='kw'>if</span> <span class='ivar'>@input_constructor</span>
@@ -1387,16 +1387,16 @@
       <pre class="lines">
 
 
-166
-167
-168
 169
 170
 171
-172</pre>
+172
+173
+174
+175</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 166</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 169</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_output'>output</span><span class='lparen'>(</span><span class='id identifier rubyid_klass'>klass</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='ivar'>@output_class</span> <span class='kw'>if</span> <span class='ivar'>@output_class</span>
@@ -1437,8 +1437,8 @@
   <span class='id identifier rubyid_include'>include</span> <span class='const'><span class='object_link'><a href="../../Teckel.html" title="Teckel (module)">Teckel</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Operation.html" title="Teckel::Operation (module)">Operation</a></span></span>
 
   <span class='kw'>class</span> <span class='const'>Output</span>
-    <span class='comment'># ....
-</span>  <span class='kw'>end</span>
+    <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>**</span><span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span>
+  <span class='kw'>end</span>
 
   <span class='comment'># MyOperation.call(&quot;foo&quot;, &quot;bar&quot;) # -&gt; Output.new(&quot;foo&quot;, &quot;bar&quot;)
 </span>  <span class='id identifier rubyid_output_constructor'>output_constructor</span> <span class='symbol'>:new</span>
@@ -1457,7 +1457,7 @@
         <span class='name'>sym_or_proc</span>
       
       
-        <span class='type'>(<tt>Symbol|#<span class='object_link'><a href="#call-instance_method" title="Teckel::Operation::ClassMethods#call (method)">call</a></span></tt>)</span>
+        <span class='type'>(<tt>Symbol</tt>, <tt>#<span class='object_link'><a href="#call-instance_method" title="Teckel::Operation::ClassMethods#call (method)">call</a></span></tt>)</span>
       
       
       
@@ -1465,7 +1465,7 @@
         <div class='inline'><ul><li>
 <p>Either a <code>Symbol</code> representing the <em>public</em> method to call on the <code>output</code> class.</p>
 </li><li>
-<p>Or a callable (like a <code>Proc</code>).</p>
+<p>Or anything that response to <code>#call</code> (like a <code>Proc</code>).</p>
 </li></ul>
 </div>
       
@@ -1498,9 +1498,6 @@
       <pre class="lines">
 
 
-200
-201
-202
 203
 204
 205
@@ -1508,10 +1505,13 @@
 207
 208
 209
-210</pre>
+210
+211
+212
+213</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 200</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 203</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_output_constructor'>output_constructor</span><span class='lparen'>(</span><span class='id identifier rubyid_sym_or_proc'>sym_or_proc</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='ivar'>@output_constructor</span> <span class='kw'>if</span> <span class='ivar'>@output_constructor</span>
@@ -1534,7 +1534,7 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Jan  2 20:05:07 2020 by
+  Generated on Thu Jan  2 21:44:54 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.22 (ruby-2.6.3).
 </div>
