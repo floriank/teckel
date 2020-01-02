@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
-  Module: Waldi::Operation
+  Module: Teckel::Operation
   
     &mdash; Documentation by YARD 0.9.22
   
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="../css/common.css" type="text/css" />
 
 <script type="text/javascript">
-  pathId = "Waldi::Operation";
+  pathId = "Teckel::Operation";
   relpath = '../';
 </script>
 
@@ -37,7 +37,7 @@
         <div id="menu">
   
     <a href="../_index.html">Index (O)</a> &raquo;
-    <span class='title'><span class='object_link'><a href="../Waldi.html" title="Waldi (module)">Waldi</a></span></span>
+    <span class='title'><span class='object_link'><a href="../Teckel.html" title="Teckel (module)">Teckel</a></span></span>
      &raquo; 
     <span class="title">Operation</span>
   
@@ -59,7 +59,7 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><h1>Module: Waldi::Operation
+      <div id="content"><h1>Module: Teckel::Operation
   
   
   
@@ -78,8 +78,8 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/waldi/operation.rb<span class="defines">,<br />
-  lib/waldi/operation/results.rb</span>
+    <dd>lib/teckel/operation.rb<span class="defines">,<br />
+  lib/teckel/operation/results.rb</span>
 </dd>
   </dl>
   
@@ -94,7 +94,7 @@
 
 <p>There are two ways of declaring those classes. The first way is to define the constants <code>Input</code>, <code>Output</code> and <code>Error</code>, the second way is to use the <code>input</code>. <code>output</code> and <code>error</code> methods to point them to anonymous classes.</p>
 
-<p>If you like “traditional” result objects (to ask <code>successful?</code> or <code>failure?</code> on) see <code>Waldi::Operation::Results</code></p>
+<p>If you like “traditional” result objects (to ask <code>successful?</code> or <code>failure?</code> on) see <code>Teckel::Operation::Results</code></p>
 
 
   </div>
@@ -110,7 +110,7 @@
 </div></p>
       
       <pre class="example code"><code><span class='kw'>class</span> <span class='const'>CreateUserViaConstants</span>
-  <span class='id identifier rubyid_include'>include</span> <span class='const'><span class='object_link'><a href="../Waldi.html" title="Waldi (module)">Waldi</a></span></span><span class='op'>::</span><span class='const'>Operation</span>
+  <span class='id identifier rubyid_include'>include</span> <span class='const'><span class='object_link'><a href="../Teckel.html" title="Teckel (module)">Teckel</a></span></span><span class='op'>::</span><span class='const'>Operation</span>
 
   <span class='kw'>class</span> <span class='const'>Input</span>
     <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>name:</span><span class='comma'>,</span> <span class='label'>age:</span><span class='rparen'>)</span>
@@ -121,7 +121,7 @@
 
   <span class='const'>Output</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'>User</span>
 
-  <span class='kw'>class</span> <span class='const'><span class='object_link'><a href="Error.html" title="Waldi::Error (class)">Error</a></span></span>
+  <span class='kw'>class</span> <span class='const'><span class='object_link'><a href="Error.html" title="Teckel::Error (class)">Error</a></span></span>
     <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='comma'>,</span> <span class='id identifier rubyid_errors'>errors</span><span class='rparen'>)</span>
       <span class='ivar'>@message</span><span class='comma'>,</span> <span class='ivar'>@errors</span> <span class='op'>=</span> <span class='id identifier rubyid_message'>message</span><span class='comma'>,</span> <span class='id identifier rubyid_errors'>errors</span>
     <span class='kw'>end</span>
@@ -151,7 +151,7 @@
 </div></p>
       
       <pre class="example code"><code><span class='kw'>class</span> <span class='const'>CreateUserViaMethods</span>
-  <span class='id identifier rubyid_include'>include</span> <span class='const'><span class='object_link'><a href="../Waldi.html" title="Waldi (module)">Waldi</a></span></span><span class='op'>::</span><span class='const'>Operation</span>
+  <span class='id identifier rubyid_include'>include</span> <span class='const'><span class='object_link'><a href="../Teckel.html" title="Teckel (module)">Teckel</a></span></span><span class='op'>::</span><span class='const'>Operation</span>
 
   <span class='id identifier rubyid_input'>input</span>  <span class='const'>Types</span><span class='op'>::</span><span class='const'>Hash</span><span class='period'>.</span><span class='id identifier rubyid_schema'>schema</span><span class='lparen'>(</span><span class='label'>name:</span> <span class='const'>Types</span><span class='op'>::</span><span class='const'>String</span><span class='comma'>,</span> <span class='label'>age:</span> <span class='const'>Types</span><span class='op'>::</span><span class='const'>Coercible</span><span class='op'>::</span><span class='const'>Integer</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_output'>output</span> <span class='const'>Types</span><span class='period'>.</span><span class='const'>Instance</span><span class='lparen'>(</span><span class='const'>User</span><span class='rparen'>)</span>
@@ -188,7 +188,7 @@
   <p class="tag_title">See Also:</p>
   <ul class="see">
     
-      <li><span class='object_link'><a href="Operation/Results.html" title="Waldi::Operation::Results (module)">Results</a></span></li>
+      <li><span class='object_link'><a href="Operation/Results.html" title="Teckel::Operation::Results (module)">Results</a></span></li>
     
   </ul>
 
@@ -196,7 +196,7 @@
 <p class="children">
   
     
-      <strong class="modules">Modules:</strong> <span class='object_link'><a href="Operation/ClassMethods.html" title="Waldi::Operation::ClassMethods (module)">ClassMethods</a></span>, <span class='object_link'><a href="Operation/InstanceMethods.html" title="Waldi::Operation::InstanceMethods (module)">InstanceMethods</a></span>, <span class='object_link'><a href="Operation/Results.html" title="Waldi::Operation::Results (module)">Results</a></span>
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="Operation/ClassMethods.html" title="Teckel::Operation::ClassMethods (module)">ClassMethods</a></span>, <span class='object_link'><a href="Operation/InstanceMethods.html" title="Teckel::Operation::InstanceMethods (module)">InstanceMethods</a></span>, <span class='object_link'><a href="Operation/Results.html" title="Teckel::Operation::Results (module)">Results</a></span>
     
   
     
@@ -293,14 +293,14 @@
 338</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/waldi/operation.rb', line 320</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 320</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_included'>included</span><span class='lparen'>(</span><span class='id identifier rubyid_receiver'>receiver</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_receiver'>receiver</span><span class='period'>.</span><span class='id identifier rubyid_extend'>extend</span>         <span class='const'><span class='object_link'><a href="Operation/ClassMethods.html" title="Waldi::Operation::ClassMethods (module)">ClassMethods</a></span></span>
-  <span class='id identifier rubyid_receiver'>receiver</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span> <span class='symbol'>:include</span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="Operation/InstanceMethods.html" title="Waldi::Operation::InstanceMethods (module)">InstanceMethods</a></span></span>
+  <span class='id identifier rubyid_receiver'>receiver</span><span class='period'>.</span><span class='id identifier rubyid_extend'>extend</span>         <span class='const'><span class='object_link'><a href="Operation/ClassMethods.html" title="Teckel::Operation::ClassMethods (module)">ClassMethods</a></span></span>
+  <span class='id identifier rubyid_receiver'>receiver</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span> <span class='symbol'>:include</span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="Operation/InstanceMethods.html" title="Teckel::Operation::InstanceMethods (module)">InstanceMethods</a></span></span>
 
   <span class='id identifier rubyid_receiver'>receiver</span><span class='period'>.</span><span class='id identifier rubyid_class_eval'>class_eval</span> <span class='kw'>do</span>
-    <span class='ivar'>@config</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Config.html" title="Waldi::Config (class)">Config</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Config.html#initialize-instance_method" title="Waldi::Config#initialize (method)">new</a></span></span>
+    <span class='ivar'>@config</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Config.html" title="Teckel::Config (class)">Config</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Config.html#initialize-instance_method" title="Teckel::Config#initialize (method)">new</a></span></span>
 
     <span class='ivar'>@input_class</span> <span class='op'>=</span> <span class='kw'>nil</span>
     <span class='ivar'>@input_constructor</span> <span class='op'>=</span> <span class='kw'>nil</span>
@@ -324,7 +324,7 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Jan  2 18:55:45 2020 by
+  Generated on Thu Jan  2 20:01:26 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.22 (ruby-2.6.3).
 </div>

@@ -58,17 +58,17 @@
       </div>
 
       <div id="content"><div id='filecontents'>
-<h1 id="label-Waldi">Waldi</h1>
+<h1 id="label-Teckel">Teckel</h1>
 
 <p>Ruby service classes with enforced&lt;sup name=“footnote-1-source”&gt;<a href="#footnote-1">1</a>&lt;/sup&gt; input, output and error data structure definition.</p>
 
-<p><a href="https://rubygems.org/gems/waldi"><img src="https://img.shields.io/gem/v/waldi.svg"></a> <a href="https://github.com/fnordfish/waldi/actions?query=workflow%3ACI"><img src="https://github.com/dry-rb/dry-configurable/workflows/ci/badge.svg"></a> <a href="https://codeclimate.com/github/fnordfish/waldi/maintainability"><img src="https://api.codeclimate.com/v1/badges/56e6fea5e86c3ec2fd53/maintainability"></a> <a href="http://inch-ci.org/github/fnordfish/waldi"><img src="http://inch-ci.org/github/dry-rb/dry-configurable.svg"></a></p>
+<p><a href="https://rubygems.org/gems/teckel"><img src="https://img.shields.io/gem/v/teckel.svg"></a> <a href="https://github.com/fnordfish/teckel/actions?query=workflow%3ACI"><img src="https://github.com/dry-rb/dry-configurable/workflows/ci/badge.svg"></a> <a href="https://codeclimate.com/github/fnordfish/teckel/maintainability"><img src="https://api.codeclimate.com/v1/badges/56e6fea5e86c3ec2fd53/maintainability"></a> <a href="http://inch-ci.org/github/fnordfish/teckel"><img src="http://inch-ci.org/github/dry-rb/dry-configurable.svg"></a></p>
 
 <h2 id="label-Installation">Installation</h2>
 
 <p>Add this line to your application&#39;s Gemfile:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>waldi</span><span class='tstring_end'>&#39;</span></span>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>teckel</span><span class='tstring_end'>&#39;</span></span>
 </code></pre>
 
 <p>And then execute:</p>
@@ -78,7 +78,7 @@
 
 <p>Or install it yourself as:</p>
 
-<pre class="code ruby"><code class="ruby">$ gem install waldi
+<pre class="code ruby"><code class="ruby">$ gem install teckel
 </code></pre>
 
 <h2 id="label-Motivation">Motivation</h2>
@@ -94,12 +94,12 @@
 
 <h2 id="label-Usage">Usage</h2>
 
-<p>For a full overview please see the <a href="https://fnordfish.github.io/waldi/doc/">Api Docs</a></p>
+<p>For a full overview please see the <a href="https://fnordfish.github.io/teckel/doc/">Api Docs</a></p>
 
 <p>This example uses <a href="https://dry-rb.org/gems/dry-types/">Dry::Types</a> to illustrate the flexibility. There&#39;s no dependency on dry-rb, choose what you like.</p>
 
 <pre class="code ruby"><code class="ruby"><span class='kw'>class</span> <span class='const'>CreateUser</span>
-  <span class='id identifier rubyid_include'>include</span> <span class='const'><span class='object_link'><a href="Waldi.html" title="Waldi (module)">Waldi</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Waldi/Operation.html" title="Waldi::Operation (module)">Operation</a></span></span>
+  <span class='id identifier rubyid_include'>include</span> <span class='const'><span class='object_link'><a href="Teckel.html" title="Teckel (module)">Teckel</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Teckel/Operation.html" title="Teckel::Operation (module)">Operation</a></span></span>
   
   <span class='comment'># DSL style declaration
 </span>  <span class='id identifier rubyid_input'>input</span> <span class='const'>Types</span><span class='op'>::</span><span class='const'>Hash</span><span class='period'>.</span><span class='id identifier rubyid_schema'>schema</span><span class='lparen'>(</span><span class='label'>name:</span> <span class='const'>Types</span><span class='op'>::</span><span class='const'>String</span><span class='comma'>,</span> <span class='label'>age:</span> <span class='const'>Types</span><span class='op'>::</span><span class='const'>Coercible</span><span class='op'>::</span><span class='const'>Integer</span><span class='rparen'>)</span>
@@ -137,7 +137,7 @@
 
 <h2 id="label-Contributing">Contributing</h2>
 
-<p>Bug reports and pull requests are welcome on GitHub at <a href="https://github.com/fnordfish/waldi">github.com/fnordfish/waldi</a>. Feature requests should provide a detailed explanation of the missing or changed behavior, if possible including some sample code.</p>
+<p>Bug reports and pull requests are welcome on GitHub at <a href="https://github.com/fnordfish/teckel">github.com/fnordfish/teckel</a>. Feature requests should provide a detailed explanation of the missing or changed behavior, if possible including some sample code.</p>
 
 <p>Please also see <a href="DEVELOPMENT.md">DEVELOPMENT.md</a> for planned features and general guidelines.</p>
 
@@ -148,7 +148,7 @@
 </div></div>
 
       <div id="footer">
-  Generated on Thu Jan  2 18:55:44 2020 by
+  Generated on Thu Jan  2 20:01:26 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.22 (ruby-2.6.3).
 </div>

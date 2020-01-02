@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
-  Class: Waldi::Config
+  Class: Teckel::Config
   
     &mdash; Documentation by YARD 0.9.22
   
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="../css/common.css" type="text/css" />
 
 <script type="text/javascript">
-  pathId = "Waldi::Config";
+  pathId = "Teckel::Config";
   relpath = '../';
 </script>
 
@@ -37,7 +37,7 @@
         <div id="menu">
   
     <a href="../_index.html">Index (C)</a> &raquo;
-    <span class='title'><span class='object_link'><a href="../Waldi.html" title="Waldi (module)">Waldi</a></span></span>
+    <span class='title'><span class='object_link'><a href="../Teckel.html" title="Teckel (module)">Teckel</a></span></span>
      &raquo; 
     <span class="title">Config</span>
   
@@ -59,7 +59,7 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><h1>Class: Waldi::Config
+      <div id="content"><h1>Class: Teckel::Config
   
   
   
@@ -74,7 +74,7 @@
         <ul class="fullTree">
           <li>Object</li>
           
-            <li class="next">Waldi::Config</li>
+            <li class="next">Teckel::Config</li>
           
         </ul>
         <a href="#" class="inheritanceTree">show all</a>
@@ -94,7 +94,7 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/waldi/config.rb</dd>
+    <dd>lib/teckel/config.rb</dd>
   </dl>
   
 </div>
@@ -105,7 +105,7 @@
     
   
     
-      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Config/FrozenConfigError.html" title="Waldi::Config::FrozenConfigError (class)">FrozenConfigError</a></span>
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Config/FrozenConfigError.html" title="Teckel::Config::FrozenConfigError (class)">FrozenConfigError</a></span>
     
   
 </p>
@@ -322,7 +322,7 @@
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    #<strong>initialize</strong>  &#x21d2; <tt><span class='object_link'><a href="" title="Waldi::Config (class)">Config</a></span></tt> 
+    #<strong>initialize</strong>  &#x21d2; <tt><span class='object_link'><a href="" title="Teckel::Config (class)">Config</a></span></tt> 
   
 
   
@@ -357,7 +357,7 @@
 25</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/waldi/config.rb', line 16</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/config.rb', line 16</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span>
   <span class='ivar'>@input_class</span> <span class='op'>=</span> <span class='kw'>nil</span>
@@ -403,7 +403,7 @@
 13</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/waldi/config.rb', line 9</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/config.rb', line 9</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_default_constructor'>default_constructor</span><span class='lparen'>(</span><span class='id identifier rubyid_sym_or_proc'>sym_or_proc</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='ivar'>@default_constructor</span> <span class='kw'>if</span> <span class='id identifier rubyid_sym_or_proc'>sym_or_proc</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
@@ -444,7 +444,7 @@
     <li>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="Config/FrozenConfigError.html" title="Waldi::Config::FrozenConfigError (class)">FrozenConfigError</a></span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="Config/FrozenConfigError.html" title="Teckel::Config::FrozenConfigError (class)">FrozenConfigError</a></span></tt>)</span>
       
       
       
@@ -466,11 +466,11 @@
 60</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/waldi/config.rb', line 55</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/config.rb', line 55</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_error'>error</span><span class='lparen'>(</span><span class='id identifier rubyid_klass'>klass</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='ivar'>@error_class</span> <span class='kw'>if</span> <span class='id identifier rubyid_klass'>klass</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="Config/FrozenConfigError.html" title="Waldi::Config::FrozenConfigError (class)">FrozenConfigError</a></span></span> <span class='kw'>unless</span> <span class='ivar'>@error_class</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="Config/FrozenConfigError.html" title="Teckel::Config::FrozenConfigError (class)">FrozenConfigError</a></span></span> <span class='kw'>unless</span> <span class='ivar'>@error_class</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
 
   <span class='ivar'>@error_class</span> <span class='op'>=</span> <span class='id identifier rubyid_klass'>klass</span>
 <span class='kw'>end</span></pre>
@@ -502,7 +502,7 @@
     <li>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="Config/FrozenConfigError.html" title="Waldi::Config::FrozenConfigError (class)">FrozenConfigError</a></span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="Config/FrozenConfigError.html" title="Teckel::Config::FrozenConfigError (class)">FrozenConfigError</a></span></tt>)</span>
       
       
       
@@ -524,11 +524,11 @@
 67</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/waldi/config.rb', line 62</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/config.rb', line 62</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_error_constructor'>error_constructor</span><span class='lparen'>(</span><span class='id identifier rubyid_sym_or_proc'>sym_or_proc</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='lparen'>(</span><span class='ivar'>@error_constructor</span> <span class='op'>||</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_default_constructor'>default_constructor</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_sym_or_proc'>sym_or_proc</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="Config/FrozenConfigError.html" title="Waldi::Config::FrozenConfigError (class)">FrozenConfigError</a></span></span> <span class='kw'>unless</span> <span class='ivar'>@error_constructor</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="Config/FrozenConfigError.html" title="Teckel::Config::FrozenConfigError (class)">FrozenConfigError</a></span></span> <span class='kw'>unless</span> <span class='ivar'>@error_constructor</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
 
   <span class='ivar'>@error_constructor</span> <span class='op'>=</span> <span class='id identifier rubyid_sym_or_proc'>sym_or_proc</span>
 <span class='kw'>end</span></pre>
@@ -560,7 +560,7 @@
     <li>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="Config/FrozenConfigError.html" title="Waldi::Config::FrozenConfigError (class)">FrozenConfigError</a></span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="Config/FrozenConfigError.html" title="Teckel::Config::FrozenConfigError (class)">FrozenConfigError</a></span></tt>)</span>
       
       
       
@@ -582,11 +582,11 @@
 32</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/waldi/config.rb', line 27</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/config.rb', line 27</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_input'>input</span><span class='lparen'>(</span><span class='id identifier rubyid_klass'>klass</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='ivar'>@input_class</span> <span class='kw'>if</span> <span class='id identifier rubyid_klass'>klass</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="Config/FrozenConfigError.html" title="Waldi::Config::FrozenConfigError (class)">FrozenConfigError</a></span></span> <span class='kw'>unless</span> <span class='ivar'>@input_class</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="Config/FrozenConfigError.html" title="Teckel::Config::FrozenConfigError (class)">FrozenConfigError</a></span></span> <span class='kw'>unless</span> <span class='ivar'>@input_class</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
 
   <span class='ivar'>@input_class</span> <span class='op'>=</span> <span class='id identifier rubyid_klass'>klass</span>
 <span class='kw'>end</span></pre>
@@ -618,7 +618,7 @@
     <li>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="Config/FrozenConfigError.html" title="Waldi::Config::FrozenConfigError (class)">FrozenConfigError</a></span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="Config/FrozenConfigError.html" title="Teckel::Config::FrozenConfigError (class)">FrozenConfigError</a></span></tt>)</span>
       
       
       
@@ -640,11 +640,11 @@
 39</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/waldi/config.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/config.rb', line 34</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_input_constructor'>input_constructor</span><span class='lparen'>(</span><span class='id identifier rubyid_sym_or_proc'>sym_or_proc</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='lparen'>(</span><span class='ivar'>@input_constructor</span> <span class='op'>||</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_default_constructor'>default_constructor</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_sym_or_proc'>sym_or_proc</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="Config/FrozenConfigError.html" title="Waldi::Config::FrozenConfigError (class)">FrozenConfigError</a></span></span> <span class='kw'>unless</span> <span class='ivar'>@input_constructor</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="Config/FrozenConfigError.html" title="Teckel::Config::FrozenConfigError (class)">FrozenConfigError</a></span></span> <span class='kw'>unless</span> <span class='ivar'>@input_constructor</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
 
   <span class='ivar'>@input_constructor</span> <span class='op'>=</span> <span class='id identifier rubyid_sym_or_proc'>sym_or_proc</span>
 <span class='kw'>end</span></pre>
@@ -676,7 +676,7 @@
     <li>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="Config/FrozenConfigError.html" title="Waldi::Config::FrozenConfigError (class)">FrozenConfigError</a></span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="Config/FrozenConfigError.html" title="Teckel::Config::FrozenConfigError (class)">FrozenConfigError</a></span></tt>)</span>
       
       
       
@@ -698,11 +698,11 @@
 46</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/waldi/config.rb', line 41</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/config.rb', line 41</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_output'>output</span><span class='lparen'>(</span><span class='id identifier rubyid_klass'>klass</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='ivar'>@output_class</span> <span class='kw'>if</span> <span class='id identifier rubyid_klass'>klass</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="Config/FrozenConfigError.html" title="Waldi::Config::FrozenConfigError (class)">FrozenConfigError</a></span></span> <span class='kw'>unless</span> <span class='ivar'>@output_class</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="Config/FrozenConfigError.html" title="Teckel::Config::FrozenConfigError (class)">FrozenConfigError</a></span></span> <span class='kw'>unless</span> <span class='ivar'>@output_class</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
 
   <span class='ivar'>@output_class</span> <span class='op'>=</span> <span class='id identifier rubyid_klass'>klass</span>
 <span class='kw'>end</span></pre>
@@ -734,7 +734,7 @@
     <li>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="Config/FrozenConfigError.html" title="Waldi::Config::FrozenConfigError (class)">FrozenConfigError</a></span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="Config/FrozenConfigError.html" title="Teckel::Config::FrozenConfigError (class)">FrozenConfigError</a></span></tt>)</span>
       
       
       
@@ -756,11 +756,11 @@
 53</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/waldi/config.rb', line 48</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/config.rb', line 48</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_output_constructor'>output_constructor</span><span class='lparen'>(</span><span class='id identifier rubyid_sym_or_proc'>sym_or_proc</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='lparen'>(</span><span class='ivar'>@output_constructor</span> <span class='op'>||</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_default_constructor'>default_constructor</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_sym_or_proc'>sym_or_proc</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="Config/FrozenConfigError.html" title="Waldi::Config::FrozenConfigError (class)">FrozenConfigError</a></span></span> <span class='kw'>unless</span> <span class='ivar'>@output_constructor</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="Config/FrozenConfigError.html" title="Teckel::Config::FrozenConfigError (class)">FrozenConfigError</a></span></span> <span class='kw'>unless</span> <span class='ivar'>@output_constructor</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
 
   <span class='ivar'>@output_constructor</span> <span class='op'>=</span> <span class='id identifier rubyid_sym_or_proc'>sym_or_proc</span>
 <span class='kw'>end</span></pre>
@@ -774,7 +774,7 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Jan  2 18:55:45 2020 by
+  Generated on Thu Jan  2 20:01:26 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.22 (ruby-2.6.3).
 </div>

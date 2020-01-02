@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
-  Module: Waldi::Operation::Results
+  Module: Teckel::Operation::Results
   
     &mdash; Documentation by YARD 0.9.22
   
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
 <script type="text/javascript">
-  pathId = "Waldi::Operation::Results";
+  pathId = "Teckel::Operation::Results";
   relpath = '../../';
 </script>
 
@@ -37,7 +37,7 @@
         <div id="menu">
   
     <a href="../../_index.html">Index (R)</a> &raquo;
-    <span class='title'><span class='object_link'><a href="../../Waldi.html" title="Waldi (module)">Waldi</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Operation.html" title="Waldi::Operation (module)">Operation</a></span></span>
+    <span class='title'><span class='object_link'><a href="../../Teckel.html" title="Teckel (module)">Teckel</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Operation.html" title="Teckel::Operation (module)">Operation</a></span></span>
      &raquo; 
     <span class="title">Results</span>
   
@@ -59,7 +59,7 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><h1>Module: Waldi::Operation::Results
+      <div id="content"><h1>Module: Teckel::Operation::Results
   
   
   
@@ -78,7 +78,7 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/waldi/operation/results.rb</dd>
+    <dd>lib/teckel/operation/results.rb</dd>
   </dl>
   
 </div>
@@ -86,9 +86,9 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>Works just like <code>Waldi::Operation</code>, but wraps <code>output</code> and <code>error</code> into a <code>Waldi::Result</code>.</p>
+<p>Works just like <code>Teckel::Operation</code>, but wraps <code>output</code> and <code>error</code> into a <code>Teckel::Result</code>.</p>
 
-<p>A <code>Waldi::Result</code> given as <code>input</code> will get unwrapped, so that the original <code>value</code> gets passed to your Operation code.</p>
+<p>A <code>Teckel::Result</code> given as <code>input</code> will get unwrapped, so that the original <code>value</code> gets passed to your Operation code.</p>
 
 
   </div>
@@ -101,7 +101,7 @@
       
       <pre class="example code"><code>
 <span class='kw'>class</span> <span class='const'>CreateUser</span>
-  <span class='id identifier rubyid_include'>include</span> <span class='const'><span class='object_link'><a href="../../Waldi.html" title="Waldi (module)">Waldi</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Operation.html" title="Waldi::Operation (module)">Operation</a></span></span><span class='op'>::</span><span class='const'>Results</span>
+  <span class='id identifier rubyid_include'>include</span> <span class='const'><span class='object_link'><a href="../../Teckel.html" title="Teckel (module)">Teckel</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Operation.html" title="Teckel::Operation (module)">Operation</a></span></span><span class='op'>::</span><span class='const'>Results</span>
 
   <span class='id identifier rubyid_input'>input</span>  <span class='const'>Types</span><span class='op'>::</span><span class='const'>Hash</span><span class='period'>.</span><span class='id identifier rubyid_schema'>schema</span><span class='lparen'>(</span><span class='label'>name:</span> <span class='const'>Types</span><span class='op'>::</span><span class='const'>String</span><span class='comma'>,</span> <span class='label'>age:</span> <span class='const'>Types</span><span class='op'>::</span><span class='const'>Coercible</span><span class='op'>::</span><span class='const'>Integer</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_output'>output</span> <span class='const'>Types</span><span class='period'>.</span><span class='const'>Instance</span><span class='lparen'>(</span><span class='const'>User</span><span class='rparen'>)</span>
@@ -121,18 +121,18 @@
 <span class='kw'>end</span>
 
 <span class='comment'># A success call:
-</span><span class='const'>CreateUser</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Bob</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>age:</span> <span class='int'>23</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../../Waldi.html" title="Waldi (module)">Waldi</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Result.html" title="Waldi::Result (class)">Result</a></span></span><span class='rparen'>)</span> <span class='comment'>#=&gt; true
+</span><span class='const'>CreateUser</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Bob</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>age:</span> <span class='int'>23</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../../Teckel.html" title="Teckel (module)">Teckel</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Result.html" title="Teckel::Result (class)">Result</a></span></span><span class='rparen'>)</span> <span class='comment'>#=&gt; true
 </span><span class='const'>CreateUser</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Bob</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>age:</span> <span class='int'>23</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_success'>success</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>User</span><span class='rparen'>)</span> <span class='comment'>#=&gt; true
 </span>
 <span class='comment'># A failure call:
-</span><span class='const'>CreateUser</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Bob</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>age:</span> <span class='int'>10</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../../Waldi.html" title="Waldi (module)">Waldi</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Result.html" title="Waldi::Result (class)">Result</a></span></span><span class='rparen'>)</span> <span class='comment'>#=&gt; true
+</span><span class='const'>CreateUser</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Bob</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>age:</span> <span class='int'>10</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../../Teckel.html" title="Teckel (module)">Teckel</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Result.html" title="Teckel::Result (class)">Result</a></span></span><span class='rparen'>)</span> <span class='comment'>#=&gt; true
 </span><span class='const'>CreateUser</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Bob</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>age:</span> <span class='int'>10</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_failure'>failure</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Hash</span><span class='rparen'>)</span> <span class='comment'>#=&gt; true
 </span>
 <span class='comment'># Unwrapping success input:
-</span><span class='const'>CreateUser</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../../Waldi.html" title="Waldi (module)">Waldi</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Result.html" title="Waldi::Result (class)">Result</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Result.html#initialize-instance_method" title="Waldi::Result#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='lbrace'>{</span><span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Bob</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>age:</span> <span class='int'>23</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='kw'>true</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_success'>success</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>User</span><span class='rparen'>)</span> <span class='comment'>#=&gt; true
+</span><span class='const'>CreateUser</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../../Teckel.html" title="Teckel (module)">Teckel</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Result.html" title="Teckel::Result (class)">Result</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Result.html#initialize-instance_method" title="Teckel::Result#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='lbrace'>{</span><span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Bob</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>age:</span> <span class='int'>23</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='kw'>true</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_success'>success</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>User</span><span class='rparen'>)</span> <span class='comment'>#=&gt; true
 </span>
 <span class='comment'># Unwrapping failure input:
-</span><span class='const'>CreateUser</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../../Waldi.html" title="Waldi (module)">Waldi</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Result.html" title="Waldi::Result (class)">Result</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Result.html#initialize-instance_method" title="Waldi::Result#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='lbrace'>{</span><span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Bob</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>age:</span> <span class='int'>23</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='kw'>false</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_success'>success</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>User</span><span class='rparen'>)</span> <span class='comment'>#=&gt; true</span></code></pre>
+</span><span class='const'>CreateUser</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../../Teckel.html" title="Teckel (module)">Teckel</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Result.html" title="Teckel::Result (class)">Result</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Result.html#initialize-instance_method" title="Teckel::Result#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='lbrace'>{</span><span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Bob</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>age:</span> <span class='int'>23</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='kw'>false</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_success'>success</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>User</span><span class='rparen'>)</span> <span class='comment'>#=&gt; true</span></code></pre>
     
   </div>
 
@@ -141,7 +141,7 @@
 <p class="children">
   
     
-      <strong class="modules">Modules:</strong> <span class='object_link'><a href="Results/InstanceMethods.html" title="Waldi::Operation::Results::InstanceMethods (module)">InstanceMethods</a></span>
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="Results/InstanceMethods.html" title="Teckel::Operation::Results::InstanceMethods (module)">InstanceMethods</a></span>
     
   
     
@@ -223,11 +223,11 @@
 68</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/waldi/operation/results.rb', line 65</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/operation/results.rb', line 65</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_included'>included</span><span class='lparen'>(</span><span class='id identifier rubyid_receiver'>receiver</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_receiver'>receiver</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span> <span class='symbol'>:include</span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="../../Waldi.html" title="Waldi (module)">Waldi</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Operation.html" title="Waldi::Operation (module)">Operation</a></span></span> <span class='kw'>unless</span> <span class='const'><span class='object_link'><a href="../../Waldi.html" title="Waldi (module)">Waldi</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Operation.html" title="Waldi::Operation (module)">Operation</a></span></span> <span class='op'>&gt;=</span> <span class='id identifier rubyid_receiver'>receiver</span>
-  <span class='id identifier rubyid_receiver'>receiver</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span> <span class='symbol'>:include</span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="Results/InstanceMethods.html" title="Waldi::Operation::Results::InstanceMethods (module)">InstanceMethods</a></span></span>
+  <span class='id identifier rubyid_receiver'>receiver</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span> <span class='symbol'>:include</span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="../../Teckel.html" title="Teckel (module)">Teckel</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Operation.html" title="Teckel::Operation (module)">Operation</a></span></span> <span class='kw'>unless</span> <span class='const'><span class='object_link'><a href="../../Teckel.html" title="Teckel (module)">Teckel</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Operation.html" title="Teckel::Operation (module)">Operation</a></span></span> <span class='op'>&gt;=</span> <span class='id identifier rubyid_receiver'>receiver</span>
+  <span class='id identifier rubyid_receiver'>receiver</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span> <span class='symbol'>:include</span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="Results/InstanceMethods.html" title="Teckel::Operation::Results::InstanceMethods (module)">InstanceMethods</a></span></span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -239,7 +239,7 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Jan  2 18:55:45 2020 by
+  Generated on Thu Jan  2 20:01:26 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.22 (ruby-2.6.3).
 </div>
