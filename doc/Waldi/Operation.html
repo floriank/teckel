@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Module: Waldi::Operation
+  
+    &mdash; Documentation by YARD 0.9.22
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "Waldi::Operation";
+  relpath = '../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../_index.html">Index (O)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../Waldi.html" title="Waldi (module)">Waldi</a></span></span>
+     &raquo; 
+    <span class="title">Operation</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Module: Waldi::Operation
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/waldi/operation.rb<span class="defines">,<br />
+  lib/waldi/operation/results.rb</span>
+</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>The main operation Mixin</p>
+
+<p>Each operation is expected to declare <code>input</code>. <code>output</code> and <code>error</code> classes.</p>
+
+<p>There are two ways of declaring those classes. The first way is to define the constants <code>Input</code>, <code>Output</code> and <code>Error</code>, the second way is to use the <code>input</code>. <code>output</code> and <code>error</code> methods to point them to anonymous classes.</p>
+
+<p>If you like “traditional” result objects (to ask <code>successful?</code> or <code>failure?</code> on) see <code>Waldi::Operation::Results</code></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+        <p class="example_title"><div class='inline'>
+<p>class definitions via constants</p>
+</div></p>
+      
+      <pre class="example code"><code><span class='kw'>class</span> <span class='const'>CreateUserViaConstants</span>
+  <span class='id identifier rubyid_include'>include</span> <span class='const'><span class='object_link'><a href="../Waldi.html" title="Waldi (module)">Waldi</a></span></span><span class='op'>::</span><span class='const'>Operation</span>
+
+  <span class='kw'>class</span> <span class='const'>Input</span>
+    <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>name:</span><span class='comma'>,</span> <span class='label'>age:</span><span class='rparen'>)</span>
+      <span class='ivar'>@name</span><span class='comma'>,</span> <span class='ivar'>@age</span> <span class='op'>=</span> <span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_age'>age</span>
+    <span class='kw'>end</span>
+    <span class='id identifier rubyid_attr_reader'>attr_reader</span> <span class='symbol'>:name</span><span class='comma'>,</span> <span class='symbol'>:age</span>
+  <span class='kw'>end</span>
+
+  <span class='const'>Output</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'>User</span>
+
+  <span class='kw'>class</span> <span class='const'><span class='object_link'><a href="Error.html" title="Waldi::Error (class)">Error</a></span></span>
+    <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='comma'>,</span> <span class='id identifier rubyid_errors'>errors</span><span class='rparen'>)</span>
+      <span class='ivar'>@message</span><span class='comma'>,</span> <span class='ivar'>@errors</span> <span class='op'>=</span> <span class='id identifier rubyid_message'>message</span><span class='comma'>,</span> <span class='id identifier rubyid_errors'>errors</span>
+    <span class='kw'>end</span>
+    <span class='id identifier rubyid_attr_reader'>attr_reader</span> <span class='symbol'>:message</span><span class='comma'>,</span> <span class='symbol'>:errors</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_input_constructor'>input_constructor</span> <span class='symbol'>:new</span>
+  <span class='id identifier rubyid_error_constructor'>error_constructor</span> <span class='symbol'>:new</span>
+
+  <span class='comment'># @param [CreateUser::Input]
+</span>  <span class='comment'># @return [User | CreateUser::Error]
+</span>  <span class='kw'>def</span> <span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='id identifier rubyid_input'>input</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_user'>user</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'>User</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='label'>name:</span> <span class='id identifier rubyid_input'>input</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='label'>age:</span> <span class='id identifier rubyid_input'>input</span><span class='period'>.</span><span class='id identifier rubyid_age'>age</span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_user'>user</span><span class='period'>.</span><span class='id identifier rubyid_safe'>safe</span>
+      <span class='id identifier rubyid_user'>user</span>
+    <span class='kw'>else</span>
+      <span class='id identifier rubyid_fail!'>fail!</span><span class='lparen'>(</span><span class='label'>message:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Could not safe User</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>errors:</span> <span class='id identifier rubyid_user'>user</span><span class='period'>.</span><span class='id identifier rubyid_errors'>errors</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+
+<span class='const'>CreateUserViaConstants</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Bob</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>age:</span> <span class='int'>23</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>User</span><span class='rparen'>)</span> <span class='comment'>#=&gt; true</span></code></pre>
+    
+      
+        <p class="example_title"><div class='inline'>
+<p>class definitions via methods</p>
+</div></p>
+      
+      <pre class="example code"><code><span class='kw'>class</span> <span class='const'>CreateUserViaMethods</span>
+  <span class='id identifier rubyid_include'>include</span> <span class='const'><span class='object_link'><a href="../Waldi.html" title="Waldi (module)">Waldi</a></span></span><span class='op'>::</span><span class='const'>Operation</span>
+
+  <span class='id identifier rubyid_input'>input</span>  <span class='const'>Types</span><span class='op'>::</span><span class='const'>Hash</span><span class='period'>.</span><span class='id identifier rubyid_schema'>schema</span><span class='lparen'>(</span><span class='label'>name:</span> <span class='const'>Types</span><span class='op'>::</span><span class='const'>String</span><span class='comma'>,</span> <span class='label'>age:</span> <span class='const'>Types</span><span class='op'>::</span><span class='const'>Coercible</span><span class='op'>::</span><span class='const'>Integer</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_output'>output</span> <span class='const'>Types</span><span class='period'>.</span><span class='const'>Instance</span><span class='lparen'>(</span><span class='const'>User</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_error'>error</span>  <span class='const'>Types</span><span class='op'>::</span><span class='const'>Hash</span><span class='period'>.</span><span class='id identifier rubyid_schema'>schema</span><span class='lparen'>(</span><span class='label'>message:</span> <span class='const'>Types</span><span class='op'>::</span><span class='const'>String</span><span class='comma'>,</span> <span class='label'>errors:</span> <span class='const'>Types</span><span class='op'>::</span><span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_of'>of</span><span class='lparen'>(</span><span class='const'>Types</span><span class='op'>::</span><span class='const'>Hash</span><span class='rparen'>)</span><span class='rparen'>)</span>
+
+  <span class='comment'># @param [Hash&lt;name: String, age: Integer&gt;]
+</span>  <span class='comment'># @return [User | Hash&lt;message: String, errors: [Hash]&gt;]
+</span>  <span class='kw'>def</span> <span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='id identifier rubyid_input'>input</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_user'>user</span> <span class='op'>=</span> <span class='const'>User</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='label'>name:</span> <span class='id identifier rubyid_input'>input</span><span class='lbracket'>[</span><span class='symbol'>:name</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>age:</span> <span class='id identifier rubyid_input'>input</span><span class='lbracket'>[</span><span class='symbol'>:age</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_user'>user</span><span class='period'>.</span><span class='id identifier rubyid_safe'>safe</span>
+      <span class='comment'># exits early with success, prevents any further execution
+</span>      <span class='id identifier rubyid_success!'>success!</span><span class='lparen'>(</span><span class='id identifier rubyid_user'>user</span><span class='rparen'>)</span>
+    <span class='kw'>else</span>
+      <span class='id identifier rubyid_fail!'>fail!</span><span class='lparen'>(</span><span class='label'>message:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Could not safe User</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>errors:</span> <span class='id identifier rubyid_user'>user</span><span class='period'>.</span><span class='id identifier rubyid_errors'>errors</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+
+<span class='comment'># A success call:
+</span><span class='const'>CreateUserViaMethods</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Bob</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>age:</span> <span class='int'>23</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>User</span><span class='rparen'>)</span> <span class='comment'>#=&gt; true
+</span>
+<span class='comment'># A failure call:
+</span><span class='const'>CreateUserViaMethods</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Bob</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>age:</span> <span class='int'>10</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_eql?'>eql?</span><span class='lparen'>(</span><span class='label'>message:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Could not safe User</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>errors:</span> <span class='lbracket'>[</span><span class='lbrace'>{</span><span class='label'>age:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>underage</span><span class='tstring_end'>&quot;</span></span><span class='rbrace'>}</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='comment'>#=&gt; true
+</span>
+<span class='comment'># Build your Input, Output and Error classes in a way that let you know:
+</span><span class='kw'>begin</span><span class='semicolon'>;</span> <span class='const'>CreateUserViaMethods</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='label'>unwanted:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>input</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>rescue</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_e'>e</span><span class='semicolon'>;</span> <span class='id identifier rubyid_e'>e</span> <span class='kw'>end</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='op'>::</span><span class='const'>Dry</span><span class='op'>::</span><span class='const'>Types</span><span class='op'>::</span><span class='const'>MissingKeyError</span><span class='rparen'>)</span> <span class='comment'>#=&gt; true
+</span>
+<span class='comment'># Feed an instance of the input class directly to call:
+</span><span class='const'>CreateUserViaMethods</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='const'>CreateUserViaMethods</span><span class='period'>.</span><span class='id identifier rubyid_input'>input</span><span class='lbracket'>[</span><span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Bob</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>age:</span> <span class='int'>23</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>User</span><span class='rparen'>)</span> <span class='comment'>#=&gt; true</span></code></pre>
+    
+  </div>
+
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="Operation/Results.html" title="Waldi::Operation::Results (module)">Results</a></span></li>
+    
+  </ul>
+
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="Operation/ClassMethods.html" title="Waldi::Operation::ClassMethods (module)">ClassMethods</a></span>, <span class='object_link'><a href="Operation/InstanceMethods.html" title="Waldi::Operation::InstanceMethods (module)">InstanceMethods</a></span>, <span class='object_link'><a href="Operation/Results.html" title="Waldi::Operation::Results (module)">Results</a></span>
+    
+  
+    
+  
+</p>
+
+
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#included-class_method" title="included (class method)">.<strong>included</strong>(receiver)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="included-class_method">
+  
+    .<strong>included</strong>(receiver)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/waldi/operation.rb', line 320</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_included'>included</span><span class='lparen'>(</span><span class='id identifier rubyid_receiver'>receiver</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_receiver'>receiver</span><span class='period'>.</span><span class='id identifier rubyid_extend'>extend</span>         <span class='const'><span class='object_link'><a href="Operation/ClassMethods.html" title="Waldi::Operation::ClassMethods (module)">ClassMethods</a></span></span>
+  <span class='id identifier rubyid_receiver'>receiver</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span> <span class='symbol'>:include</span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="Operation/InstanceMethods.html" title="Waldi::Operation::InstanceMethods (module)">InstanceMethods</a></span></span>
+
+  <span class='id identifier rubyid_receiver'>receiver</span><span class='period'>.</span><span class='id identifier rubyid_class_eval'>class_eval</span> <span class='kw'>do</span>
+    <span class='ivar'>@config</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Config.html" title="Waldi::Config (class)">Config</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Config.html#initialize-instance_method" title="Waldi::Config#initialize (method)">new</a></span></span>
+
+    <span class='ivar'>@input_class</span> <span class='op'>=</span> <span class='kw'>nil</span>
+    <span class='ivar'>@input_constructor</span> <span class='op'>=</span> <span class='kw'>nil</span>
+
+    <span class='ivar'>@output_class</span> <span class='op'>=</span> <span class='kw'>nil</span>
+    <span class='ivar'>@output_constructor</span> <span class='op'>=</span> <span class='kw'>nil</span>
+
+    <span class='ivar'>@error_class</span> <span class='op'>=</span> <span class='kw'>nil</span>
+    <span class='ivar'>@error_constructor</span> <span class='op'>=</span> <span class='kw'>nil</span>
+
+    <span class='id identifier rubyid_protected'>protected</span> <span class='symbol'>:success!</span><span class='comma'>,</span> <span class='symbol'>:fail!</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Thu Jan  2 18:25:23 2020 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.22 (ruby-2.6.5).
+</div>
+
+    </div>
+  </body>
+</html>

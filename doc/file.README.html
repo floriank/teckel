@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  File: README
+  
+    &mdash; Documentation by YARD 0.9.22
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "README";
+  relpath = '';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="file_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="_index.html">Index</a> &raquo; 
+    <span class="title">File: README</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><div id='filecontents'>
+<h1 id="label-Waldi">Waldi</h1>
+
+<p>Ruby service classes with enforced&lt;sup name=“footnote-1-source”&gt;<a href="#footnote-1">1</a>&lt;/sup&gt; input, output and error data structure definition.</p>
+
+<p><a href="https://rubygems.org/gems/waldi"><img src="https://img.shields.io/gem/v/waldi.svg"></a> <a href="https://github.com/fnordfish/waldi/actions?query=workflow%3ACI"><img src="https://github.com/dry-rb/dry-configurable/workflows/ci/badge.svg"></a> <a href="http://inch-ci.org/github/fnordfish/waldi"><img src="http://inch-ci.org/github/dry-rb/dry-configurable.svg"></a></p>
+
+<h2 id="label-Installation">Installation</h2>
+
+<p>Add this line to your application&#39;s Gemfile:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>waldi</span><span class='tstring_end'>&#39;</span></span>
+</code></pre>
+
+<p>And then execute:</p>
+
+<pre class="code ruby"><code class="ruby">$ bundle
+</code></pre>
+
+<p>Or install it yourself as:</p>
+
+<pre class="code ruby"><code class="ruby">$ gem install waldi
+</code></pre>
+
+<h2 id="label-Motivation">Motivation</h2>
+
+<p>Working with <a href="https://github.com/collectiveidea/interactor">Interactor</a>, <a href="http://trailblazer.to/gems/operation">Trailblazer’s Operation</a> and <a href="https://dry-rb.org/gems/dry-transaction">Dry-rb’s Transaction</a> and probably a hand full of inconsistent “service objects”, I missed a system that:</p>
+<ol><li>
+<p>provides and enforces well defined input, output and error structures</p>
+</li><li>
+<p>makes chaining multiple operation easy and reliable</p>
+</li><li>
+<p>is easy to debug</p>
+</li></ol>
+
+<h2 id="label-Usage">Usage</h2>
+
+<p>This example uses <a href="https://dry-rb.org/gems/dry-types/">Dry::Types</a> to illustrate the flexibility. There&#39;s no dependency on dry-rb, choose what you like.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='kw'>class</span> <span class='const'>CreateUser</span>
+  <span class='id identifier rubyid_include'>include</span> <span class='const'><span class='object_link'><a href="Waldi.html" title="Waldi (module)">Waldi</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Waldi/Operation.html" title="Waldi::Operation (module)">Operation</a></span></span>
+  
+  <span class='comment'># DSL style declaration
+</span>  <span class='id identifier rubyid_input'>input</span> <span class='const'>Types</span><span class='op'>::</span><span class='const'>Hash</span><span class='period'>.</span><span class='id identifier rubyid_schema'>schema</span><span class='lparen'>(</span><span class='label'>name:</span> <span class='const'>Types</span><span class='op'>::</span><span class='const'>String</span><span class='comma'>,</span> <span class='label'>age:</span> <span class='const'>Types</span><span class='op'>::</span><span class='const'>Coercible</span><span class='op'>::</span><span class='const'>Integer</span><span class='rparen'>)</span>
+  
+  <span class='comment'># Constant style declaration
+</span>  <span class='const'>Output</span> <span class='op'>=</span> <span class='const'>Types</span><span class='period'>.</span><span class='const'>Instance</span><span class='lparen'>(</span><span class='const'>User</span><span class='rparen'>)</span>
+
+  <span class='comment'># Well, also Constant style, but using classic `class` notation
+</span>  <span class='kw'>class</span> <span class='const'>Error</span> <span class='op'>&lt;</span> <span class='const'>Dry</span><span class='op'>::</span><span class='const'>Struct</span>
+    <span class='id identifier rubyid_attribute'>attribute</span> <span class='symbol'>:message</span><span class='comma'>,</span> <span class='const'>Types</span><span class='op'>::</span><span class='const'>String</span>
+    <span class='id identifier rubyid_attribute'>attribute</span> <span class='symbol'>:status_code</span><span class='comma'>,</span> <span class='const'>Types</span><span class='op'>::</span><span class='const'>Integer</span>
+    <span class='id identifier rubyid_attribute'>attribute</span> <span class='symbol'>:meta</span><span class='comma'>,</span> <span class='const'>Types</span><span class='op'>::</span><span class='const'>Hash</span><span class='period'>.</span><span class='id identifier rubyid_optional'>optional</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>def</span> <span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='id identifier rubyid_input'>input</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_user'>user</span> <span class='op'>=</span> <span class='const'>User</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_input'>input</span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_user'>user</span><span class='period'>.</span><span class='id identifier rubyid_safe'>safe</span>
+      <span class='id identifier rubyid_success!'>success!</span><span class='lparen'>(</span><span class='id identifier rubyid_user'>user</span><span class='rparen'>)</span>
+    <span class='kw'>else</span>
+      <span class='id identifier rubyid_fail!'>fail!</span><span class='lparen'>(</span>
+        <span class='label'>message:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Could not create User</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+        <span class='label'>status_code:</span> <span class='int'>400</span><span class='comma'>,</span>
+        <span class='label'>meta:</span> <span class='lbrace'>{</span> <span class='label'>validation:</span> <span class='id identifier rubyid_user'>user</span><span class='period'>.</span><span class='id identifier rubyid_errors'>errors</span> <span class='rbrace'>}</span>
+      <span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='const'>CreateUser</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Bob</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>age:</span> <span class='int'>23</span><span class='rparen'>)</span>
+</code></pre>
+
+<h2 id="label-Development">Development</h2>
+
+<p>After checking out the repo, run <code>bin/setup</code> to install dependencies. Then, run <code>rake spec</code> to run the tests. You can also run <code>bin/console</code> for an interactive prompt that will allow you to experiment.</p>
+
+<p>To install this gem onto your local machine, run <code>bundle exec rake install</code>. To release a new version, update the version number in <code>version.rb</code>, and then run <code>bundle exec rake release</code>, which will create a git tag for the version, push git commits and tags, and push the <code>.gem</code> file to <a href="https://rubygems.org">rubygems.org</a>.</p>
+
+<h2 id="label-Contributing">Contributing</h2>
+
+<p>Bug reports and pull requests are welcome on GitHub at <a href="https://github.com/fnordfish/waldi">github.com/fnordfish/waldi</a>. Feature requests should provide a detailed explanation of the missing or changed behavior, if possible including some sample code.</p>
+
+<h2 id="label-Footnotes">Footnotes</h2>
+<ul><li>
+<p>&lt;a name=“footnote-1”&gt;1&lt;/a&gt;: Obviously, it&#39;s still Ruby and you can cheat. Don’t! <a href="#footnote-1-source">↩</a></p>
+</li></ul>
+</div></div>
+
+      <div id="footer">
+  Generated on Thu Jan  2 18:25:22 2020 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.22 (ruby-2.6.5).
+</div>
+
+    </div>
+  </body>
+</html>
