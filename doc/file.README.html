@@ -103,26 +103,26 @@
 <p><a href="https://fnordfish.github.io/teckel/doc/Teckel/Chain.html">Chains</a></p>
 </li></ul>
 
-<p>This example uses <a href="https://dry-rb.org/gems/dry-types/">Dry::Types</a> to illustrate the flexibility. There&#39;s no dependency on dry-rb, choose what you like.</p>
-
 <pre class="code ruby"><code class="ruby"><span class='kw'>class</span> <span class='const'>CreateUser</span>
   <span class='id identifier rubyid_include'>include</span> <span class='const'><span class='object_link'><a href="Teckel.html" title="Teckel (module)">Teckel</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Teckel/Operation.html" title="Teckel::Operation (module)">Operation</a></span></span>
 
   <span class='comment'># DSL style declaration
-</span>  <span class='id identifier rubyid_input'>input</span> <span class='const'>Types</span><span class='op'>::</span><span class='const'>Hash</span><span class='period'>.</span><span class='id identifier rubyid_schema'>schema</span><span class='lparen'>(</span><span class='label'>name:</span> <span class='const'>Types</span><span class='op'>::</span><span class='const'>String</span><span class='comma'>,</span> <span class='label'>age:</span> <span class='const'>Types</span><span class='op'>::</span><span class='const'>Coercible</span><span class='op'>::</span><span class='const'>Integer</span><span class='rparen'>)</span>
+</span>  <span class='id identifier rubyid_input'>input</span> <span class='const'>Struct</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:name</span><span class='comma'>,</span> <span class='symbol'>:age</span><span class='comma'>,</span> <span class='label'>keyword_init:</span> <span class='kw'>true</span><span class='rparen'>)</span>
 
   <span class='comment'># Constant style declaration
-</span>  <span class='const'>Output</span> <span class='op'>=</span> <span class='const'>Types</span><span class='period'>.</span><span class='const'>Instance</span><span class='lparen'>(</span><span class='const'>User</span><span class='rparen'>)</span>
+</span>  <span class='const'>Output</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'>User</span>
 
   <span class='comment'># Well, also Constant style, but using classic `class` notation
-</span>  <span class='kw'>class</span> <span class='const'>Error</span> <span class='op'>&lt;</span> <span class='const'>Dry</span><span class='op'>::</span><span class='const'>Struct</span>
-    <span class='id identifier rubyid_attribute'>attribute</span> <span class='symbol'>:message</span><span class='comma'>,</span> <span class='const'>Types</span><span class='op'>::</span><span class='const'>String</span>
-    <span class='id identifier rubyid_attribute'>attribute</span> <span class='symbol'>:status_code</span><span class='comma'>,</span> <span class='const'>Types</span><span class='op'>::</span><span class='const'>Integer</span>
-    <span class='id identifier rubyid_attribute'>attribute</span> <span class='symbol'>:meta</span><span class='comma'>,</span> <span class='const'>Types</span><span class='op'>::</span><span class='const'>Hash</span><span class='period'>.</span><span class='id identifier rubyid_optional'>optional</span>
+</span>  <span class='kw'>class</span> <span class='const'>Error</span>
+    <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>message:</span><span class='comma'>,</span> <span class='label'>status_code:</span><span class='comma'>,</span> <span class='label'>meta:</span><span class='rparen'>)</span>
+      <span class='ivar'>@message</span><span class='comma'>,</span> <span class='ivar'>@status_code</span><span class='comma'>,</span> <span class='ivar'>@meta</span> <span class='op'>=</span> <span class='id identifier rubyid_message'>message</span><span class='comma'>,</span> <span class='id identifier rubyid_status_code'>status_code</span><span class='comma'>,</span> <span class='id identifier rubyid_meta'>meta</span>
+    <span class='kw'>end</span>
+    <span class='id identifier rubyid_attr_reader'>attr_reader</span> <span class='symbol'>:message</span><span class='comma'>,</span> <span class='symbol'>:status_code</span><span class='comma'>,</span> <span class='symbol'>:meta</span>
   <span class='kw'>end</span>
+  <span class='id identifier rubyid_error_constructor'>error_constructor</span> <span class='symbol'>:new</span>
 
   <span class='kw'>def</span> <span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='id identifier rubyid_input'>input</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_user'>user</span> <span class='op'>=</span> <span class='const'>User</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_input'>input</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_user'>user</span> <span class='op'>=</span> <span class='const'>User</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='label'>name:</span> <span class='id identifier rubyid_input'>input</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='label'>age:</span> <span class='id identifier rubyid_input'>input</span><span class='period'>.</span><span class='id identifier rubyid_age'>age</span><span class='rparen'>)</span>
     <span class='kw'>if</span> <span class='id identifier rubyid_user'>user</span><span class='period'>.</span><span class='id identifier rubyid_save'>save</span>
       <span class='id identifier rubyid_success!'>success!</span><span class='lparen'>(</span><span class='id identifier rubyid_user'>user</span><span class='rparen'>)</span>
     <span class='kw'>else</span>
@@ -135,8 +135,13 @@
   <span class='kw'>end</span>
 <span class='kw'>end</span>
 
-<span class='id identifier rubyid_user'>user</span> <span class='op'>=</span> <span class='const'>CreateUser</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Bob</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>age:</span> <span class='int'>23</span><span class='rparen'>)</span>
-</code></pre>
+<span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='const'>CreateUser</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Bob</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>age:</span> <span class='int'>23</span><span class='rparen'>)</span>
+<span class='comment'># If successful:
+</span><span class='id identifier rubyid_result'>result</span> <span class='comment'>#=&gt; #&lt;User @age=23, @name=&quot;Bob&quot;&gt;
+</span>
+<span class='comment'># If failure:
+</span><span class='id identifier rubyid_result'>result</span> <span class='comment'>#=&gt; #&lt;CreateUser::Error @message=&quot;Could not create User&quot;, @meta={:validation=&gt;nil}, @status_code=400&gt;
+</span></code></pre>
 
 <h2 id="label-Development">Development</h2>
 
@@ -155,7 +160,7 @@
 </div></div>
 
       <div id="footer">
-  Generated on Fri Jan 10 16:55:15 2020 by
+  Generated on Fri Jan 10 18:09:20 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.6.3).
 </div>
