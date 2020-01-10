@@ -135,12 +135,9 @@
   <span class='kw'>end</span>
 <span class='kw'>end</span>
 
-<span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='const'>CreateUser</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Bob</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>age:</span> <span class='int'>23</span><span class='rparen'>)</span>
-<span class='comment'># If successful:
-</span><span class='id identifier rubyid_result'>result</span> <span class='comment'>#=&gt; #&lt;User @age=23, @name=&quot;Bob&quot;&gt;
+<span class='const'>CreateUser</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Bob</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>age:</span> <span class='int'>23</span><span class='rparen'>)</span> <span class='comment'>#=&gt; #&lt;User @age=23, @name=&quot;Bob&quot;&gt;
 </span>
-<span class='comment'># If failure:
-</span><span class='id identifier rubyid_result'>result</span> <span class='comment'>#=&gt; #&lt;CreateUser::Error @message=&quot;Could not create User&quot;, @meta={:validation=&gt;nil}, @status_code=400&gt;
+<span class='const'>CreateUser</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Bob</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>age:</span> <span class='int'>5</span><span class='rparen'>)</span>  <span class='comment'>#=&gt; #&lt;CreateUser::Error @message=&quot;Could not create User&quot;, @meta={:validation=&gt;[{:age=&gt;&quot;underage&quot;}]}, @status_code=400&gt;
 </span></code></pre>
 
 <h2 id="label-Development">Development</h2>
@@ -160,7 +157,7 @@
 </div></div>
 
       <div id="footer">
-  Generated on Fri Jan 10 18:09:20 2020 by
+  Generated on Fri Jan 10 18:26:17 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.6.3).
 </div>
