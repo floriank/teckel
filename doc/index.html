@@ -107,10 +107,10 @@
 
 <pre class="code ruby"><code class="ruby"><span class='kw'>class</span> <span class='const'>CreateUser</span>
   <span class='id identifier rubyid_include'>include</span> <span class='const'><span class='object_link'><a href="Teckel.html" title="Teckel (module)">Teckel</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Teckel/Operation.html" title="Teckel::Operation (module)">Operation</a></span></span>
-  
+
   <span class='comment'># DSL style declaration
 </span>  <span class='id identifier rubyid_input'>input</span> <span class='const'>Types</span><span class='op'>::</span><span class='const'>Hash</span><span class='period'>.</span><span class='id identifier rubyid_schema'>schema</span><span class='lparen'>(</span><span class='label'>name:</span> <span class='const'>Types</span><span class='op'>::</span><span class='const'>String</span><span class='comma'>,</span> <span class='label'>age:</span> <span class='const'>Types</span><span class='op'>::</span><span class='const'>Coercible</span><span class='op'>::</span><span class='const'>Integer</span><span class='rparen'>)</span>
-  
+
   <span class='comment'># Constant style declaration
 </span>  <span class='const'>Output</span> <span class='op'>=</span> <span class='const'>Types</span><span class='period'>.</span><span class='const'>Instance</span><span class='lparen'>(</span><span class='const'>User</span><span class='rparen'>)</span>
 
@@ -123,7 +123,7 @@
 
   <span class='kw'>def</span> <span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='id identifier rubyid_input'>input</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_user'>user</span> <span class='op'>=</span> <span class='const'>User</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_input'>input</span><span class='rparen'>)</span>
-    <span class='kw'>if</span> <span class='id identifier rubyid_user'>user</span><span class='period'>.</span><span class='id identifier rubyid_safe'>safe</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_user'>user</span><span class='period'>.</span><span class='id identifier rubyid_save'>save</span>
       <span class='id identifier rubyid_success!'>success!</span><span class='lparen'>(</span><span class='id identifier rubyid_user'>user</span><span class='rparen'>)</span>
     <span class='kw'>else</span>
       <span class='id identifier rubyid_fail!'>fail!</span><span class='lparen'>(</span>
@@ -155,7 +155,7 @@
 </div></div>
 
       <div id="footer">
-  Generated on Fri Jan 10 16:39:49 2020 by
+  Generated on Fri Jan 10 16:55:15 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.6.3).
 </div>
