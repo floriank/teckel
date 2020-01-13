@@ -140,9 +140,9 @@
 <p class="children">
   
     
-      <strong class="modules">Modules:</strong> <span class='object_link'><a href="Results/InstanceMethods.html" title="Teckel::Operation::Results::InstanceMethods (module)">InstanceMethods</a></span>
-    
   
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Results/Runner.html" title="Teckel::Operation::Results::Runner (class)">Runner</a></span>
     
   
 </p>
@@ -201,32 +201,23 @@
   
 
   
-</h3><div class="docstring">
-  <div class="discussion">
-    
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-65
 66
 67
-68</pre>
+68
+69</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/operation/results.rb', line 65</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/operation/results.rb', line 66</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_included'>included</span><span class='lparen'>(</span><span class='id identifier rubyid_receiver'>receiver</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_receiver'>receiver</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span> <span class='symbol'>:include</span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="../../Teckel.html" title="Teckel (module)">Teckel</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Operation.html" title="Teckel::Operation (module)">Operation</a></span></span> <span class='kw'>unless</span> <span class='const'><span class='object_link'><a href="../../Teckel.html" title="Teckel (module)">Teckel</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Operation.html" title="Teckel::Operation (module)">Operation</a></span></span> <span class='op'>&gt;=</span> <span class='id identifier rubyid_receiver'>receiver</span>
-  <span class='id identifier rubyid_receiver'>receiver</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span> <span class='symbol'>:include</span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="Results/InstanceMethods.html" title="Teckel::Operation::Results::InstanceMethods (module)">InstanceMethods</a></span></span>
+  <span class='id identifier rubyid_receiver'>receiver</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span> <span class='symbol'>:runner</span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="Results/Runner.html" title="Teckel::Operation::Results::Runner (class)">Runner</a></span></span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -238,7 +229,7 @@
 </div>
 
       <div id="footer">
-  Generated on Fri Jan 10 18:26:17 2020 by
+  Generated on Mon Jan 13 16:19:48 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.6.3).
 </div>

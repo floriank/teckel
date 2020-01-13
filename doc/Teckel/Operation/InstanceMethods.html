@@ -83,16 +83,7 @@
   
 </div>
 
-<div class="docstring">
-  <div class="discussion">
-    
 
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
 
 
 
@@ -106,28 +97,6 @@
     </h2>
 
     <ul class="summary">
-      
-        <li class="protected ">
-  <span class="summary_signature">
-    
-      <a href="#call!-instance_method" title="#call! (instance method)">#<strong>call!</strong>(input)  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-  <span class="note title protected">protected</span>
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
       
         <li class="protected ">
   <span class="summary_signature">
@@ -183,58 +152,7 @@
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="call!-instance_method">
-  
-    #<strong>call!</strong>(input)  &#x21d2; <tt>Object</tt>  <span class="extras">(protected)</span>
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-280
-281
-282
-283
-284
-285
-286
-287
-288</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 280</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_call!'>call!</span><span class='lparen'>(</span><span class='id identifier rubyid_input'>input</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_catch'>catch</span><span class='lparen'>(</span><span class='symbol'>:failure</span><span class='rparen'>)</span> <span class='kw'>do</span>
-    <span class='id identifier rubyid_out'>out</span> <span class='op'>=</span> <span class='id identifier rubyid_catch'>catch</span><span class='lparen'>(</span><span class='symbol'>:success</span><span class='rparen'>)</span> <span class='kw'>do</span>
-      <span class='id identifier rubyid_simple_ret'>simple_ret</span> <span class='op'>=</span> <span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='id identifier rubyid_build_input'>build_input</span><span class='lparen'>(</span><span class='id identifier rubyid_input'>input</span><span class='rparen'>)</span><span class='rparen'>)</span>
-      <span class='id identifier rubyid_build_output'>build_output</span><span class='lparen'>(</span><span class='id identifier rubyid_simple_ret'>simple_ret</span><span class='rparen'>)</span>
-    <span class='kw'>end</span>
-    <span class='kw'>return</span> <span class='id identifier rubyid_out'>out</span>
-  <span class='kw'>end</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="fail!-instance_method">
+  <h3 class="signature first" id="fail!-instance_method">
   
     #<strong>fail!</strong>(*args)  &#x21d2; <tt>Object</tt>  <span class="extras">(protected)</span>
   
@@ -242,30 +160,21 @@
   
 
   
-</h3><div class="docstring">
-  <div class="discussion">
-    
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-296
-297
-298</pre>
+343
+344
+345</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 296</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 343</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fail!'>fail!</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_throw'>throw</span> <span class='symbol'>:failure</span><span class='comma'>,</span> <span class='id identifier rubyid_build_error'>build_error</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_throw'>throw</span> <span class='symbol'>:failure</span><span class='comma'>,</span> <span class='id identifier rubyid_args'>args</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -281,30 +190,21 @@
   
 
   
-</h3><div class="docstring">
-  <div class="discussion">
-    
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-291
-292
-293</pre>
+338
+339
+340</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 291</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 338</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_success!'>success!</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_throw'>throw</span> <span class='symbol'>:success</span><span class='comma'>,</span> <span class='id identifier rubyid_build_output'>build_output</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_throw'>throw</span> <span class='symbol'>:success</span><span class='comma'>,</span> <span class='id identifier rubyid_args'>args</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -316,7 +216,7 @@
 </div>
 
       <div id="footer">
-  Generated on Fri Jan 10 18:26:17 2020 by
+  Generated on Mon Jan 13 16:19:48 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.6.3).
 </div>

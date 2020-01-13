@@ -187,6 +187,91 @@
 </span><span class='id identifier rubyid_failure_result'>failure_result</span><span class='period'>.</span><span class='id identifier rubyid_failure?'>failure?</span>                         <span class='comment'>#=&gt; true
 </span><span class='id identifier rubyid_failure_result'>failure_result</span><span class='period'>.</span><span class='id identifier rubyid_failure'>failure</span>                          <span class='comment'>#=&gt; {message: &quot;Did not find a friend.&quot;}</span></code></pre>
     
+      
+        <p class="example_title"><div class='inline'>
+<p>DB transaction around hook</p>
+</div></p>
+      
+      <pre class="example code"><code><span class='kw'>class</span> <span class='const'>CreateUser</span>
+  <span class='id identifier rubyid_include'>include</span> <span class='op'>::</span><span class='const'><span class='object_link'><a href="../Teckel.html" title="Teckel (module)">Teckel</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Operation.html" title="Teckel::Operation (module)">Operation</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Operation/Results.html" title="Teckel::Operation::Results (module)">Results</a></span></span>
+
+  <span class='id identifier rubyid_input'>input</span>  <span class='const'>Types</span><span class='op'>::</span><span class='const'>Hash</span><span class='period'>.</span><span class='id identifier rubyid_schema'>schema</span><span class='lparen'>(</span><span class='label'>name:</span> <span class='const'>Types</span><span class='op'>::</span><span class='const'>String</span><span class='comma'>,</span> <span class='label'>age:</span> <span class='const'>Types</span><span class='op'>::</span><span class='const'>Coercible</span><span class='op'>::</span><span class='const'>Integer</span><span class='period'>.</span><span class='id identifier rubyid_optional'>optional</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_output'>output</span> <span class='const'>Types</span><span class='period'>.</span><span class='const'>Instance</span><span class='lparen'>(</span><span class='const'>User</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_error'>error</span>  <span class='const'>Types</span><span class='op'>::</span><span class='const'>Hash</span><span class='period'>.</span><span class='id identifier rubyid_schema'>schema</span><span class='lparen'>(</span><span class='label'>message:</span> <span class='const'>Types</span><span class='op'>::</span><span class='const'>String</span><span class='comma'>,</span> <span class='label'>errors:</span> <span class='const'>Types</span><span class='op'>::</span><span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_of'>of</span><span class='lparen'>(</span><span class='const'>Types</span><span class='op'>::</span><span class='const'>Hash</span><span class='rparen'>)</span><span class='rparen'>)</span>
+
+  <span class='kw'>def</span> <span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='id identifier rubyid_input'>input</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_user'>user</span> <span class='op'>=</span> <span class='const'>User</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='label'>name:</span> <span class='id identifier rubyid_input'>input</span><span class='lbracket'>[</span><span class='symbol'>:name</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>age:</span> <span class='id identifier rubyid_input'>input</span><span class='lbracket'>[</span><span class='symbol'>:age</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_user'>user</span><span class='period'>.</span><span class='id identifier rubyid_save'>save</span>
+      <span class='id identifier rubyid_success!'>success!</span><span class='lparen'>(</span><span class='id identifier rubyid_user'>user</span><span class='rparen'>)</span>
+    <span class='kw'>else</span>
+      <span class='id identifier rubyid_fail!'>fail!</span><span class='lparen'>(</span><span class='label'>message:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Could not safe User</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>errors:</span> <span class='id identifier rubyid_user'>user</span><span class='period'>.</span><span class='id identifier rubyid_errors'>errors</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+
+<span class='kw'>class</span> <span class='const'>AddFriend</span>
+  <span class='kw'>class</span> <span class='op'>&lt;&lt;</span> <span class='kw'>self</span>
+    <span class='comment'># Don&#39;t actually do this! It&#39;s not safe and for generating the failure sample only.
+</span>    <span class='id identifier rubyid_attr_accessor'>attr_accessor</span> <span class='symbol'>:fail_befriend</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_include'>include</span> <span class='op'>::</span><span class='const'><span class='object_link'><a href="../Teckel.html" title="Teckel (module)">Teckel</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Operation.html" title="Teckel::Operation (module)">Operation</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Operation/Results.html" title="Teckel::Operation::Results (module)">Results</a></span></span>
+
+  <span class='id identifier rubyid_input'>input</span> <span class='const'>Types</span><span class='period'>.</span><span class='const'>Instance</span><span class='lparen'>(</span><span class='const'>User</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_output'>output</span> <span class='const'>Types</span><span class='op'>::</span><span class='const'>Hash</span><span class='period'>.</span><span class='id identifier rubyid_schema'>schema</span><span class='lparen'>(</span><span class='label'>user:</span> <span class='const'>Types</span><span class='period'>.</span><span class='const'>Instance</span><span class='lparen'>(</span><span class='const'>User</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='label'>friend:</span> <span class='const'>Types</span><span class='period'>.</span><span class='const'>Instance</span><span class='lparen'>(</span><span class='const'>User</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_error'>error</span>  <span class='const'>Types</span><span class='op'>::</span><span class='const'>Hash</span><span class='period'>.</span><span class='id identifier rubyid_schema'>schema</span><span class='lparen'>(</span><span class='label'>message:</span> <span class='const'>Types</span><span class='op'>::</span><span class='const'>String</span><span class='rparen'>)</span>
+
+  <span class='kw'>def</span> <span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='id identifier rubyid_user'>user</span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_fail_befriend'>fail_befriend</span>
+      <span class='id identifier rubyid_fail!'>fail!</span><span class='lparen'>(</span><span class='label'>message:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Did not find a friend.</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='kw'>else</span>
+      <span class='lbrace'>{</span> <span class='label'>user:</span> <span class='id identifier rubyid_user'>user</span><span class='comma'>,</span> <span class='label'>friend:</span> <span class='const'>User</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>A friend</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>age:</span> <span class='int'>42</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+
+<span class='const'>LOG</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+
+<span class='kw'>class</span> <span class='const'>MyChain</span>
+  <span class='id identifier rubyid_include'>include</span> <span class='const'><span class='object_link'><a href="../Teckel.html" title="Teckel (module)">Teckel</a></span></span><span class='op'>::</span><span class='const'>Chain</span>
+
+  <span class='id identifier rubyid_around'>around</span> <span class='tlambda'>-&gt;</span><span class='lparen'>(</span><span class='id identifier rubyid_chain'>chain</span><span class='comma'>,</span> <span class='id identifier rubyid_input'>input</span><span class='rparen'>)</span> <span class='tlambeg'>{</span>
+    <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='kw'>nil</span>
+    <span class='kw'>begin</span>
+      <span class='const'>LOG</span> <span class='op'>&lt;&lt;</span> <span class='symbol'>:before</span>
+
+      <span class='const'>FakeDB</span><span class='period'>.</span><span class='id identifier rubyid_transaction'>transaction</span> <span class='kw'>do</span>
+        <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='id identifier rubyid_chain'>chain</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='id identifier rubyid_input'>input</span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_raise'>raise</span> <span class='const'>FakeDB</span><span class='op'>::</span><span class='const'>Rollback</span> <span class='kw'>if</span> <span class='id identifier rubyid_result'>result</span><span class='period'>.</span><span class='id identifier rubyid_failure?'>failure?</span>
+      <span class='kw'>end</span>
+
+      <span class='const'>LOG</span> <span class='op'>&lt;&lt;</span> <span class='symbol'>:after</span>
+      <span class='id identifier rubyid_result'>result</span>
+    <span class='kw'>rescue</span> <span class='const'>FakeDB</span><span class='op'>::</span><span class='const'>Rollback</span>
+      <span class='const'>LOG</span> <span class='op'>&lt;&lt;</span> <span class='symbol'>:rollback</span>
+      <span class='id identifier rubyid_result'>result</span>
+    <span class='kw'>end</span>
+  <span class='rbrace'>}</span>
+
+  <span class='id identifier rubyid_step'>step</span> <span class='symbol'>:create</span><span class='comma'>,</span> <span class='const'>CreateUser</span>
+  <span class='id identifier rubyid_step'>step</span> <span class='symbol'>:befriend</span><span class='comma'>,</span> <span class='const'>AddFriend</span>
+<span class='kw'>end</span>
+
+<span class='const'>AddFriend</span><span class='period'>.</span><span class='id identifier rubyid_fail_befriend'>fail_befriend</span> <span class='op'>=</span> <span class='kw'>true</span>
+<span class='id identifier rubyid_failure_result'>failure_result</span> <span class='op'>=</span> <span class='const'>MyChain</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Bob</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>age:</span> <span class='int'>23</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_failure_result'>failure_result</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../Teckel.html" title="Teckel (module)">Teckel</a></span></span><span class='op'>::</span><span class='const'>Chain</span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Chain/StepFailure.html" title="Teckel::Chain::StepFailure (class)">StepFailure</a></span></span><span class='rparen'>)</span> <span class='comment'>#=&gt; true
+</span>
+<span class='comment'># triggered DB rollback
+</span><span class='const'>LOG</span>                                              <span class='comment'>#=&gt; [:before, :rollback]
+</span>
+<span class='comment'># additional step information
+</span><span class='id identifier rubyid_failure_result'>failure_result</span><span class='period'>.</span><span class='id identifier rubyid_step_name'>step_name</span>                         <span class='comment'>#=&gt; :befriend
+</span><span class='id identifier rubyid_failure_result'>failure_result</span><span class='period'>.</span><span class='id identifier rubyid_step'>step</span>                              <span class='comment'>#=&gt; AddFriend
+</span>
+<span class='comment'># otherwise behaves just like a normal +Result+
+</span><span class='id identifier rubyid_failure_result'>failure_result</span><span class='period'>.</span><span class='id identifier rubyid_failure?'>failure?</span>                          <span class='comment'>#=&gt; true
+</span><span class='id identifier rubyid_failure_result'>failure_result</span><span class='period'>.</span><span class='id identifier rubyid_failure'>failure</span>                           <span class='comment'>#=&gt; {message: &quot;Did not find a friend.&quot;}</span></code></pre>
+    
   </div>
 
 
@@ -201,11 +286,11 @@
 <p class="children">
   
     
-      <strong class="modules">Modules:</strong> <span class='object_link'><a href="Chain/ClassMethods.html" title="Teckel::Chain::ClassMethods (module)">ClassMethods</a></span>, <span class='object_link'><a href="Chain/InstanceMethods.html" title="Teckel::Chain::InstanceMethods (module)">InstanceMethods</a></span>
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="Chain/ClassMethods.html" title="Teckel::Chain::ClassMethods (module)">ClassMethods</a></span>
     
   
     
-      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Chain/StepFailure.html" title="Teckel::Chain::StepFailure (class)">StepFailure</a></span>
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Chain/Runner.html" title="Teckel::Chain::Runner (class)">Runner</a></span>, <span class='object_link'><a href="Chain/StepFailure.html" title="Teckel::Chain::StepFailure (class)">StepFailure</a></span>
     
   
 </p>
@@ -270,24 +355,26 @@
       <pre class="lines">
 
 
-176
-177
-178
-179
-180
-181
-182
-183</pre>
+354
+355
+356
+357
+358
+359
+360
+361
+362</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 176</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 354</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_included'>included</span><span class='lparen'>(</span><span class='id identifier rubyid_receiver'>receiver</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_receiver'>receiver</span><span class='period'>.</span><span class='id identifier rubyid_extend'>extend</span>         <span class='const'><span class='object_link'><a href="Chain/ClassMethods.html" title="Teckel::Chain::ClassMethods (module)">ClassMethods</a></span></span>
-  <span class='id identifier rubyid_receiver'>receiver</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span> <span class='symbol'>:include</span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="Chain/InstanceMethods.html" title="Teckel::Chain::InstanceMethods (module)">InstanceMethods</a></span></span>
+  <span class='id identifier rubyid_receiver'>receiver</span><span class='period'>.</span><span class='id identifier rubyid_extend'>extend</span> <span class='const'><span class='object_link'><a href="Chain/ClassMethods.html" title="Teckel::Chain::ClassMethods (module)">ClassMethods</a></span></span>
 
   <span class='id identifier rubyid_receiver'>receiver</span><span class='period'>.</span><span class='id identifier rubyid_class_eval'>class_eval</span> <span class='kw'>do</span>
     <span class='ivar'>@steps</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+    <span class='ivar'>@around</span> <span class='op'>=</span> <span class='kw'>nil</span>
+    <span class='ivar'>@runner</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Chain/Runner.html" title="Teckel::Chain::Runner (class)">Runner</a></span></span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -300,7 +387,7 @@
 </div>
 
       <div id="footer">
-  Generated on Fri Jan 10 18:26:17 2020 by
+  Generated on Mon Jan 13 16:19:48 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.6.3).
 </div>

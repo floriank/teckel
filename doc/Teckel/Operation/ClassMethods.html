@@ -83,16 +83,7 @@
   
 </div>
 
-<div class="docstring">
-  <div class="discussion">
-    
 
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
 
 
 
@@ -273,6 +264,35 @@
 </li>
 
     
+      <li class="protected ">
+  <span class="summary_signature">
+    
+      <a href="#runner()-instance_method" title="#runner() (instance method)">#<strong>runner()</strong>  &#x21d2; Class </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  <span class="note title protected">protected</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The Runner class.</p>
+</div></span>
+  
+</li>
+
+    
   </ul>
 
 
@@ -286,7 +306,7 @@
 
     <ul class="summary">
       
-        <li class="public ">
+        <li class="protected ">
   <span class="summary_signature">
     
       <a href="#call-instance_method" title="#call (instance method)">#<strong>call</strong>(input)  &#x21d2; Object </a>
@@ -297,7 +317,7 @@
   
   
   
-  
+  <span class="note title protected">protected</span>
   
   
   
@@ -454,6 +474,30 @@
 </li>
 
       
+        <li class="protected ">
+  <span class="summary_signature">
+    
+      <a href="#runner-instance_method" title="#runner (instance method)">#<strong>runner</strong>(klass = nil)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title protected">protected</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Overwrite the default runner.</p>
+</div></span>
+  
+</li>
+
+      
     </ul>
   
 
@@ -510,7 +554,7 @@
 </pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 215</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 261</span>
 
 </pre>
     </td>
@@ -567,7 +611,7 @@
 </pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 231</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 277</span>
 
 </pre>
     </td>
@@ -624,7 +668,7 @@
 </pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 93</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 139</span>
 
 </pre>
     </td>
@@ -681,7 +725,7 @@
 </pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 109</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 155</span>
 
 </pre>
     </td>
@@ -738,7 +782,7 @@
 </pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 161</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 207</span>
 
 </pre>
     </td>
@@ -795,7 +839,64 @@
 </pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 177</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 223</span>
+
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="runner()-instance_method">
+  
+    #<strong>runner()</strong>  &#x21d2; <tt>Class</tt>  <span class="extras">(readonly, protected)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns The Runner class.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Class</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The Runner class</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 315</span>
 
 </pre>
     </td>
@@ -813,7 +914,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="call-instance_method">
   
-    #<strong>call</strong>(input)  &#x21d2; <tt>Object</tt> 
+    #<strong>call</strong>(input)  &#x21d2; <tt>Object</tt>  <span class="extras">(protected)</span>
   
 
   
@@ -874,15 +975,15 @@
       <pre class="lines">
 
 
-273
-274
-275</pre>
+331
+332
+333</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 273</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 331</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='id identifier rubyid_input'>input</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_call!'>call!</span><span class='lparen'>(</span><span class='id identifier rubyid_input'>input</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_runner'>runner</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='id identifier rubyid_input'>input</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -953,16 +1054,16 @@
       <pre class="lines">
 
 
-223
-224
-225
-226
-227
-228
-229</pre>
+269
+270
+271
+272
+273
+274
+275</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 223</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 269</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_error'>error</span><span class='lparen'>(</span><span class='id identifier rubyid_klass'>klass</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='ivar'>@error_class</span> <span class='kw'>if</span> <span class='ivar'>@error_class</span>
@@ -1064,20 +1165,20 @@
       <pre class="lines">
 
 
-257
-258
-259
-260
-261
-262
-263
-264
-265
-266
-267</pre>
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 257</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 303</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_error_constructor'>error_constructor</span><span class='lparen'>(</span><span class='id identifier rubyid_sym_or_proc'>sym_or_proc</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='ivar'>@error_constructor</span> <span class='kw'>if</span> <span class='ivar'>@error_constructor</span>
@@ -1159,16 +1260,16 @@
       <pre class="lines">
 
 
-101
-102
-103
-104
-105
-106
-107</pre>
+147
+148
+149
+150
+151
+152
+153</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 101</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 147</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_input'>input</span><span class='lparen'>(</span><span class='id identifier rubyid_klass'>klass</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='ivar'>@input_class</span> <span class='kw'>if</span> <span class='ivar'>@input_class</span>
@@ -1292,20 +1393,20 @@
       <pre class="lines">
 
 
-149
-150
-151
-152
-153
-154
-155
-156
-157
-158
-159</pre>
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 149</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 195</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_input_constructor'>input_constructor</span><span class='lparen'>(</span><span class='id identifier rubyid_sym_or_proc'>sym_or_proc</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='ivar'>@input_constructor</span> <span class='kw'>if</span> <span class='ivar'>@input_constructor</span>
@@ -1387,16 +1488,16 @@
       <pre class="lines">
 
 
-169
-170
-171
-172
-173
-174
-175</pre>
+215
+216
+217
+218
+219
+220
+221</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 169</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 215</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_output'>output</span><span class='lparen'>(</span><span class='id identifier rubyid_klass'>klass</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='ivar'>@output_class</span> <span class='kw'>if</span> <span class='ivar'>@output_class</span>
@@ -1498,20 +1599,20 @@
       <pre class="lines">
 
 
-203
-204
-205
-206
-207
-208
-209
-210
-211
-212
-213</pre>
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 203</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 249</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_output_constructor'>output_constructor</span><span class='lparen'>(</span><span class='id identifier rubyid_sym_or_proc'>sym_or_proc</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='ivar'>@output_constructor</span> <span class='kw'>if</span> <span class='ivar'>@output_constructor</span>
@@ -1529,12 +1630,77 @@
 </table>
 </div>
     
+      <div class="method_details ">
+  <h3 class="signature " id="runner-instance_method">
+  
+    #<strong>runner</strong>(klass = nil)  &#x21d2; <tt>Object</tt>  <span class="extras">(protected)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Overwrite the default runner</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>klass</span>
+      
+      
+        <span class='type'>(<tt>Class</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>A class like the <span class='object_link'><a href="Runner.html" title="Teckel::Operation::Runner (class)">Runner</a></span></p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+322
+323
+324
+325</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 322</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_runner'>runner</span><span class='lparen'>(</span><span class='id identifier rubyid_klass'>klass</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='ivar'>@runner</span> <span class='op'>=</span> <span class='id identifier rubyid_klass'>klass</span> <span class='kw'>if</span> <span class='id identifier rubyid_klass'>klass</span>
+  <span class='ivar'>@runner</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
   </div>
 
 </div>
 
       <div id="footer">
-  Generated on Fri Jan 10 18:26:17 2020 by
+  Generated on Mon Jan 13 16:19:48 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.6.3).
 </div>
