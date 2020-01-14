@@ -115,7 +115,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Halt any further execution with an <code>error</code> value.</p>
+</div></span>
   
 </li>
 
@@ -137,7 +139,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Halt any further execution with a <code>output</code> value.</p>
+</div></span>
   
 </li>
 
@@ -160,18 +164,29 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Halt any further execution with an <code>error</code> value</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-343
-344
-345</pre>
+395
+396
+397</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 343</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 395</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fail!'>fail!</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_throw'>throw</span> <span class='symbol'>:failure</span><span class='comma'>,</span> <span class='id identifier rubyid_args'>args</span>
@@ -190,18 +205,29 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Halt any further execution with a <code>output</code> value</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-338
-339
-340</pre>
+389
+390
+391</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 338</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 389</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_success!'>success!</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_throw'>throw</span> <span class='symbol'>:success</span><span class='comma'>,</span> <span class='id identifier rubyid_args'>args</span>
@@ -216,7 +242,7 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Jan 13 16:19:48 2020 by
+  Generated on Tue Jan 14 19:24:39 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.6.3).
 </div>

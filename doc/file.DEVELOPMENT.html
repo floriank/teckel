@@ -69,7 +69,7 @@
 
 <h2 id="label-Roadmap">Roadmap</h2>
 <ul><li>
-<p>Add "Settings" for Operations and Chains</p>
+<p>Add "Settings"/Dependency injection for Operations and Chains</p>
 
 <pre class="code ruby"><code class="ruby"><span class='const'>MyOp</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='label'>foo:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>bar</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>input</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
 
@@ -85,16 +85,16 @@
 <span class='const'>MyCain</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='symbol'>:step1</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='lbrace'>{</span> <span class='label'>foo:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>bar</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='symbol'>:stepX</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='lbrace'>{</span> <span class='label'>another:</span> <span class='symbol'>:setting</span><span class='rbrace'>}</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
 </code></pre>
 </li><li>
-<p>Add support for around hooks in Chains (for db transactions etc.)</p>
+<p>Add a dry-monads mixin to wrap Operations and Chains result/error into a Result Monad (for example see <a href="https://dry-rb.org/gems/dry-types/master/extensions/monads">dry-rb.org/gems/dry-types/master/extensions/monads</a>/) <code> MyOp.call(&quot;input&quot;).to_monad do end </code></p>
 </li><li>
-<p>Add a dry-monads mixin to wrap Operations and Chains result/error into a Result Monad</p>
+<p>Check if/how to deal with inheritance</p>
 </li><li>
 <p>...</p>
 </li></ul>
 </div></div>
 
       <div id="footer">
-  Generated on Mon Jan 13 16:19:48 2020 by
+  Generated on Tue Jan 14 19:24:39 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.6.3).
 </div>

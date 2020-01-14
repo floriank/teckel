@@ -355,26 +355,24 @@
       <pre class="lines">
 
 
-354
-355
-356
-357
-358
-359
-360
-361
-362</pre>
+382
+383
+384
+385
+386
+387
+388
+389</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 354</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 382</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_included'>included</span><span class='lparen'>(</span><span class='id identifier rubyid_receiver'>receiver</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_receiver'>receiver</span><span class='period'>.</span><span class='id identifier rubyid_extend'>extend</span> <span class='const'><span class='object_link'><a href="Chain/ClassMethods.html" title="Teckel::Chain::ClassMethods (module)">ClassMethods</a></span></span>
 
   <span class='id identifier rubyid_receiver'>receiver</span><span class='period'>.</span><span class='id identifier rubyid_class_eval'>class_eval</span> <span class='kw'>do</span>
     <span class='ivar'>@steps</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-    <span class='ivar'>@around</span> <span class='op'>=</span> <span class='kw'>nil</span>
-    <span class='ivar'>@runner</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Chain/Runner.html" title="Teckel::Chain::Runner (class)">Runner</a></span></span>
+    <span class='ivar'>@config</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Config.html" title="Teckel::Config (class)">Config</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -387,7 +385,7 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Jan 13 16:19:48 2020 by
+  Generated on Tue Jan 14 19:24:39 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.6.3).
 </div>

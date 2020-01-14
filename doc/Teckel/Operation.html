@@ -259,46 +259,28 @@
       <pre class="lines">
 
 
-348
-349
-350
-351
-352
-353
-354
-355
-356
-357
-358
-359
-360
-361
-362
-363
-364
-365
-366
-367
-368</pre>
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 348</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 400</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_included'>included</span><span class='lparen'>(</span><span class='id identifier rubyid_receiver'>receiver</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_receiver'>receiver</span><span class='period'>.</span><span class='id identifier rubyid_extend'>extend</span>         <span class='const'><span class='object_link'><a href="Operation/ClassMethods.html" title="Teckel::Operation::ClassMethods (module)">ClassMethods</a></span></span>
   <span class='id identifier rubyid_receiver'>receiver</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span> <span class='symbol'>:include</span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="Operation/InstanceMethods.html" title="Teckel::Operation::InstanceMethods (module)">InstanceMethods</a></span></span>
 
   <span class='id identifier rubyid_receiver'>receiver</span><span class='period'>.</span><span class='id identifier rubyid_class_eval'>class_eval</span> <span class='kw'>do</span>
-    <span class='ivar'>@config</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Config.html" title="Teckel::Config (class)">Config</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Config.html#initialize-instance_method" title="Teckel::Config#initialize (method)">new</a></span></span>
-
-    <span class='ivar'>@input_class</span> <span class='op'>=</span> <span class='kw'>nil</span>
-    <span class='ivar'>@input_constructor</span> <span class='op'>=</span> <span class='kw'>nil</span>
-
-    <span class='ivar'>@output_class</span> <span class='op'>=</span> <span class='kw'>nil</span>
-    <span class='ivar'>@output_constructor</span> <span class='op'>=</span> <span class='kw'>nil</span>
-
-    <span class='ivar'>@error_class</span> <span class='op'>=</span> <span class='kw'>nil</span>
-    <span class='ivar'>@error_constructor</span> <span class='op'>=</span> <span class='kw'>nil</span>
+    <span class='ivar'>@config</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Config.html" title="Teckel::Config (class)">Config</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
 
     <span class='ivar'>@runner</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Operation/Runner.html" title="Teckel::Operation::Runner (class)">Runner</a></span></span>
 
@@ -315,7 +297,7 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Jan 13 16:19:48 2020 by
+  Generated on Tue Jan 14 19:24:39 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.6.3).
 </div>
