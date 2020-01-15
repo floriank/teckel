@@ -364,17 +364,15 @@
 179
 180
 181
-182
-183</pre>
+182</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 178</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_finalize!'>finalize!</span>
-  <span class='id identifier rubyid_freeze'>freeze</span>
   <span class='id identifier rubyid_name'>name</span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span>
   <span class='id identifier rubyid_operation'>operation</span><span class='period'>.</span><span class='id identifier rubyid_finalize!'>finalize!</span>
-  <span class='kw'>self</span>
+  <span class='id identifier rubyid_freeze'>freeze</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -386,7 +384,7 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Jan 15 16:38:48 2020 by
+  Generated on Wed Jan 15 20:44:08 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.6.3).
 </div>

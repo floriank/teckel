@@ -183,7 +183,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#clone-instance_method" title="#clone (instance method)">#<strong>clone</strong>  &#x21d2; Object </a>
+      <a href="#clone-instance_method" title="#clone (instance method)">#<strong>clone</strong>  &#x21d2; self </a>
     
 
     
@@ -197,7 +197,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Produces a clone of this chain.</p>
+</div></span>
   
 </li>
 
@@ -205,7 +207,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#dup-instance_method" title="#dup (instance method)">#<strong>dup</strong>  &#x21d2; Object </a>
+      <a href="#dup-instance_method" title="#dup (instance method)">#<strong>dup</strong>  &#x21d2; self </a>
     
 
     
@@ -219,7 +221,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Produces a shallow copy of this chain.</p>
+</div></span>
   
 </li>
 
@@ -371,7 +375,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#steps-instance_method" title="#steps (instance method)">#<strong>steps</strong>  &#x21d2; Object </a>
+      <a href="#steps-instance_method" title="#steps (instance method)">#<strong>steps</strong>  &#x21d2; &lt;Step&gt; </a>
     
 
     
@@ -385,7 +389,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Get the list of defined steps.</p>
+</div></span>
   
 </li>
 
@@ -446,7 +452,7 @@
 </pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 339</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 341</span>
 
 </pre>
     </td>
@@ -567,12 +573,12 @@
       <pre class="lines">
 
 
-335
-336
-337</pre>
+337
+338
+339</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 335</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 337</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_around'>around</span><span class='lparen'>(</span><span class='id identifier rubyid_callable'>callable</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='ivar'>@config</span><span class='period'>.</span><span class='id identifier rubyid_for'>for</span><span class='lparen'>(</span><span class='symbol'>:around</span><span class='comma'>,</span> <span class='id identifier rubyid_callable'>callable</span> <span class='op'>||</span> <span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
@@ -646,17 +652,17 @@
       <pre class="lines">
 
 
-357
-358
 359
 360
 361
 362
 363
-364</pre>
+364
+365
+366</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 357</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 359</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='id identifier rubyid_input'>input</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_runner'>runner</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_runner'>runner</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_steps'>steps</span><span class='rparen'>)</span>
@@ -674,33 +680,57 @@
       <div class="method_details ">
   <h3 class="signature " id="clone-instance_method">
   
-    #<strong>clone</strong>  &#x21d2; <tt>Object</tt> 
+    #<strong>clone</strong>  &#x21d2; <tt>self</tt> 
   
 
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Produces a clone of this chain. It&#39;s <span class='object_link'><a href="#around-instance_method" title="Teckel::Chain::ClassMethods#around (method)">#around</a></span>, <span class='object_link'><a href="#runner-instance_method" title="Teckel::Chain::ClassMethods#runner (method)">#runner</a></span> and <span class='object_link'><a href="#steps-instance_method" title="Teckel::Chain::ClassMethods#steps (method)">#steps</a></span> will get <code>dup</code>&#39;ed</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>self</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-398
-399
-400
-401
-402
-403
-404
-405
-406
-407
-408
-409</pre>
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 398</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 409</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_clone'>clone</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_frozen?'>frozen?</span>
@@ -722,29 +752,53 @@
       <div class="method_details ">
   <h3 class="signature " id="dup-instance_method">
   
-    #<strong>dup</strong>  &#x21d2; <tt>Object</tt> 
+    #<strong>dup</strong>  &#x21d2; <tt>self</tt> 
   
 
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Produces a shallow copy of this chain. It&#39;s <span class='object_link'><a href="#around-instance_method" title="Teckel::Chain::ClassMethods#around (method)">#around</a></span>, <span class='object_link'><a href="#runner-instance_method" title="Teckel::Chain::ClassMethods#runner (method)">#runner</a></span> and <span class='object_link'><a href="#steps-instance_method" title="Teckel::Chain::ClassMethods#steps (method)">#steps</a></span> will get <code>dup</code>&#39;ed</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>self</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-388
-389
-390
-391
-392
-393
-394
-395</pre>
+395
+396
+397
+398
+399
+400
+401
+402</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 388</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 395</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_dup'>dup</span>
   <span class='kw'>super</span><span class='period'>.</span><span class='id identifier rubyid_tap'>tap</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_copy'>copy</span><span class='op'>|</span>
@@ -803,15 +857,15 @@
       <pre class="lines">
 
 
+273
 274
 275
 276
 277
-278
-279</pre>
+278</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 274</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 273</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_errors'>errors</span>
   <span class='id identifier rubyid_steps'>steps</span><span class='period'>.</span><span class='id identifier rubyid_each_with_object'>each_with_object</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_step'>step</span><span class='comma'>,</span> <span class='id identifier rubyid_m'>m</span><span class='op'>|</span>
@@ -836,6 +890,14 @@
 </h3><div class="docstring">
   <div class="discussion">
     
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'>
+<p>This also calls <code>finalize!</code> on all Operations defined as steps.</p>
+</div>
+  </div>
+
+
 <p>Disallow any further changes to this Chain.</p>
 
 
@@ -868,23 +930,21 @@
       <pre class="lines">
 
 
-379
-380
-381
-382
 383
 384
-385</pre>
+385
+386
+387
+388</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 379</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 383</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_finalize!'>finalize!</span>
   <span class='id identifier rubyid_define!'>define!</span>
   <span class='id identifier rubyid_steps'>steps</span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span>
   <span class='ivar'>@config</span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span>
   <span class='id identifier rubyid_freeze'>freeze</span>
-  <span class='kw'>self</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -935,12 +995,12 @@
       <pre class="lines">
 
 
+261
 262
-263
-264</pre>
+263</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 262</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 261</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_input'>input</span>
   <span class='id identifier rubyid_steps'>steps</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span><span class='op'>&amp;.</span><span class='id identifier rubyid_operation'>operation</span><span class='op'>&amp;.</span><span class='id identifier rubyid_input'>input</span>
@@ -994,12 +1054,12 @@
       <pre class="lines">
 
 
+267
 268
-269
-270</pre>
+269</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 268</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 267</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_output'>output</span>
   <span class='id identifier rubyid_steps'>steps</span><span class='period'>.</span><span class='id identifier rubyid_last'>last</span><span class='op'>&amp;.</span><span class='id identifier rubyid_operation'>operation</span><span class='op'>&amp;.</span><span class='id identifier rubyid_output'>output</span>
@@ -1057,12 +1117,12 @@
       <pre class="lines">
 
 
-346
-347
-348</pre>
+348
+349
+350</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 346</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 348</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_runner'>runner</span><span class='lparen'>(</span><span class='id identifier rubyid_klass'>klass</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='ivar'>@config</span><span class='period'>.</span><span class='id identifier rubyid_for'>for</span><span class='lparen'>(</span><span class='symbol'>:runner</span><span class='comma'>,</span> <span class='id identifier rubyid_klass'>klass</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='const'><span class='object_link'><a href="Runner.html" title="Teckel::Chain::Runner (class)">Runner</a></span></span> <span class='rbrace'>}</span>
@@ -1134,12 +1194,12 @@
       <pre class="lines">
 
 
+286
 287
-288
-289</pre>
+288</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 287</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 286</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_step'>step</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_operation'>operation</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_steps'>steps</span> <span class='op'>&lt;&lt;</span> <span class='const'><span class='object_link'><a href="Step.html" title="Teckel::Chain::Step (class)">Step</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_operation'>operation</span><span class='rparen'>)</span>
@@ -1152,24 +1212,48 @@
       <div class="method_details ">
   <h3 class="signature " id="steps-instance_method">
   
-    #<strong>steps</strong>  &#x21d2; <tt>Object</tt> 
+    #<strong>steps</strong>  &#x21d2; <tt>&lt;<span class='object_link'><a href="Step.html" title="Teckel::Chain::Step (class)">Step</a></span>&gt;</tt> 
   
 
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Get the list of defined steps</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>&lt;<span class='object_link'><a href="Step.html" title="Teckel::Chain::Step (class)">Step</a></span>&gt;</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-291
-292
-293</pre>
+293
+294
+295</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 291</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 293</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_steps'>steps</span>
   <span class='ivar'>@config</span><span class='period'>.</span><span class='id identifier rubyid_for'>for</span><span class='lparen'>(</span><span class='symbol'>:steps</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='lbracket'>[</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
@@ -1184,7 +1268,7 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Jan 15 16:38:48 2020 by
+  Generated on Wed Jan 15 20:44:08 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.6.3).
 </div>

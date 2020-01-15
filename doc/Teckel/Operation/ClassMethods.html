@@ -333,7 +333,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#clone-instance_method" title="#clone (instance method)">#<strong>clone</strong>  &#x21d2; Object </a>
+      <a href="#clone-instance_method" title="#clone (instance method)">#<strong>clone</strong>  &#x21d2; self </a>
     
 
     
@@ -347,7 +347,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Produces a clone of this operation and all it&#39;s configuration.</p>
+</div></span>
   
 </li>
 
@@ -355,7 +357,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#dup-instance_method" title="#dup (instance method)">#<strong>dup</strong>  &#x21d2; Object </a>
+      <a href="#dup-instance_method" title="#dup (instance method)">#<strong>dup</strong>  &#x21d2; self </a>
     
 
     
@@ -369,7 +371,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Produces a shallow copy of this operation and all it&#39;s configuration.</p>
+</div></span>
   
 </li>
 
@@ -497,7 +501,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#none-instance_method" title="#none (instance method)">#<strong>none</strong>  &#x21d2; None </a>
+      <a href="#none-instance_method" title="#none (instance method)">#<strong>none</strong>  &#x21d2; Object </a>
     
 
     
@@ -988,7 +992,7 @@
 </pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 315</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 316</span>
 
 </pre>
     </td>
@@ -1069,12 +1073,12 @@
       <pre class="lines">
 
 
-331
 332
-333</pre>
+333
+334</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 331</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 332</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='id identifier rubyid_input'>input</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_runner'>runner</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='id identifier rubyid_input'>input</span><span class='rparen'>)</span>
@@ -1087,30 +1091,54 @@
       <div class="method_details ">
   <h3 class="signature " id="clone-instance_method">
   
-    #<strong>clone</strong>  &#x21d2; <tt>Object</tt> 
+    #<strong>clone</strong>  &#x21d2; <tt>self</tt> 
   
 
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Produces a clone of this operation and all it&#39;s configuration</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>self</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-365
-366
-367
-368
-369
-370
 371
 372
-373</pre>
+373
+374
+375
+376
+377
+378
+379</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 365</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 371</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_clone'>clone</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_frozen?'>frozen?</span>
@@ -1129,26 +1157,50 @@
       <div class="method_details ">
   <h3 class="signature " id="dup-instance_method">
   
-    #<strong>dup</strong>  &#x21d2; <tt>Object</tt> 
+    #<strong>dup</strong>  &#x21d2; <tt>self</tt> 
   
 
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Produces a shallow copy of this operation and all it&#39;s configuration.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>self</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-358
-359
-360
 361
-362</pre>
+362
+363
+364
+365</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 358</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 361</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_dup'>dup</span>
   <span class='kw'>super</span><span class='period'>.</span><span class='id identifier rubyid_tap'>tap</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_copy'>copy</span><span class='op'>|</span>
@@ -1403,7 +1455,6 @@
       <pre class="lines">
 
 
-350
 351
 352
 353
@@ -1411,13 +1462,12 @@
 355</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 350</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 351</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_finalize!'>finalize!</span>
   <span class='id identifier rubyid_define!'>define!</span>
   <span class='ivar'>@config</span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span>
   <span class='id identifier rubyid_freeze'>freeze</span>
-  <span class='kw'>self</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1635,7 +1685,7 @@
       <div class="method_details ">
   <h3 class="signature " id="none-instance_method">
   
-    #<strong>none</strong>  &#x21d2; <tt><span class='object_link'><a href="../None.html" title="Teckel::None (class)">None</a></span></tt> 
+    #<strong>none</strong>  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -1691,9 +1741,14 @@
     <li>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="../None.html" title="Teckel::None (class)">None</a></span></tt>)</span>
+        <span class='type'>(<tt>Object</tt>)</span>
       
       
+      
+        &mdash;
+        <div class='inline'>
+<p>The <span class='object_link'><a href="../None.html" title="Teckel::None (class)">None</a></span> class.</p>
+</div>
       
     </li>
   
@@ -1705,12 +1760,12 @@
       <pre class="lines">
 
 
-311
 312
-313</pre>
+313
+314</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 311</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 312</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_none'>none</span>
   <span class='const'><span class='object_link'><a href="../None.html" title="Teckel::None (class)">None</a></span></span>
@@ -1954,12 +2009,12 @@
       <pre class="lines">
 
 
-322
 323
-324</pre>
+324
+325</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 322</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 323</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_runner'>runner</span><span class='lparen'>(</span><span class='id identifier rubyid_klass'>klass</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='ivar'>@config</span><span class='period'>.</span><span class='id identifier rubyid_for'>for</span><span class='lparen'>(</span><span class='symbol'>:runner</span><span class='comma'>,</span> <span class='id identifier rubyid_klass'>klass</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='const'><span class='object_link'><a href="Runner.html" title="Teckel::Operation::Runner (class)">Runner</a></span></span> <span class='rbrace'>}</span>
@@ -1974,7 +2029,7 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Jan 15 16:38:48 2020 by
+  Generated on Wed Jan 15 20:44:08 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.6.3).
 </div>

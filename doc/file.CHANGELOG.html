@@ -60,6 +60,18 @@
       <div id="content"><div id='filecontents'>
 <h1 id="label-Changes">Changes</h1>
 
+<h2 id="label-0.3.0">0.3.0</h2>
+<ul><li>
+<p><code>finalize!</code>&#39;ing a Chain will also finalize all it&#39;s Operations</p>
+</li><li>
+<p>Changed attribute naming of <code>StepFailure</code>:</p>
+<ul><li>
+<p><code>.operation</code> will now give the operation class of the step - was <code>.step</code> before</p>
+</li><li>
+<p><code>.step</code> will now give the name of the step (which Operation failed) - was <code>.step_name</code> before</p>
+</li></ul>
+</li></ul>
+
 <h2 id="label-0.2.0">0.2.0</h2>
 <ul><li>
 <p>Around Hooks for Chains</p>
@@ -78,7 +90,7 @@
 </div></div>
 
       <div id="footer">
-  Generated on Wed Jan 15 16:38:48 2020 by
+  Generated on Wed Jan 15 20:44:08 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.6.3).
 </div>

@@ -116,7 +116,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Halt any further execution with an <code>error</code> value.</p>
+<p>Halt any further execution with an error value.</p>
 </div></span>
   
 </li>
@@ -140,7 +140,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Halt any further execution with a <code>output</code> value.</p>
+<p>Halt any further execution with a output value.</p>
 </div></span>
   
 </li>
@@ -167,13 +167,31 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Halt any further execution with an <code>error</code> value</p>
+<p>Halt any further execution with an error value</p>
 
 
   </div>
 </div>
 <div class="tags">
   
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'>
+<p>a thing matching your <span class='object_link'><a href="ClassMethods.html#error-instance_method" title="Teckel::Operation::ClassMethods#error (method)">Operation#error</a></span> definition</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -181,12 +199,12 @@
       <pre class="lines">
 
 
-395
-396
-397</pre>
+405
+406
+407</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 395</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 405</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fail!'>fail!</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_throw'>throw</span> <span class='symbol'>:failure</span><span class='comma'>,</span> <span class='id identifier rubyid_args'>args</span>
@@ -208,13 +226,31 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Halt any further execution with a <code>output</code> value</p>
+<p>Halt any further execution with a output value</p>
 
 
   </div>
 </div>
 <div class="tags">
   
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'>
+<p>a thing matching your <span class='object_link'><a href="ClassMethods.html#output-instance_method" title="Teckel::Operation::ClassMethods#output (method)">Operation#output</a></span> definition</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -222,12 +258,12 @@
       <pre class="lines">
 
 
-389
-390
-391</pre>
+397
+398
+399</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 389</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/operation.rb', line 397</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_success!'>success!</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_throw'>throw</span> <span class='symbol'>:success</span><span class='comma'>,</span> <span class='id identifier rubyid_args'>args</span>
@@ -242,7 +278,7 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Jan 15 16:38:48 2020 by
+  Generated on Wed Jan 15 20:44:08 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.6.3).
 </div>
