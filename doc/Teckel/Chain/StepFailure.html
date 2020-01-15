@@ -151,60 +151,6 @@
 </li>
 
     
-      <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#step-instance_method" title="#step (instance method)">#<strong>step</strong>  &#x21d2; Teckel::Operation </a>
-    
-
-    
-  </span>
-  
-  
-  
-    
-    
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>The failed Operation.</p>
-</div></span>
-  
-</li>
-
-    
-      <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#step_name-instance_method" title="#step_name (instance method)">#<strong>step_name</strong>  &#x21d2; String </a>
-    
-
-    
-  </span>
-  
-  
-  
-    
-    
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>The step name of the failed Operation.</p>
-</div></span>
-  
-</li>
-
-    
   </ul>
 
 
@@ -269,7 +215,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(step, step_name, result)  &#x21d2; StepFailure </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(step, result)  &#x21d2; StepFailure </a>
     
 
     
@@ -287,6 +233,54 @@
   
     <span class="summary_desc"><div class='inline'>
 <p>A new instance of StepFailure.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#operation-instance_method" title="#operation (instance method)">#<strong>operation</strong>  &#x21d2; Teckel::Operation </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Delegates to <code>step.operation</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#step-instance_method" title="#step (instance method)">#<strong>step</strong>  &#x21d2; String, Symbol </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Delegates to <code>step.name</code>.</p>
 </div></span>
   
 </li>
@@ -374,7 +368,7 @@
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    #<strong>initialize</strong>(step, step_name, result)  &#x21d2; <tt><span class='object_link'><a href="" title="Teckel::Chain::StepFailure (class)">StepFailure</a></span></tt> 
+    #<strong>initialize</strong>(step, result)  &#x21d2; <tt><span class='object_link'><a href="" title="Teckel::Chain::StepFailure (class)">StepFailure</a></span></tt> 
   
 
   
@@ -397,15 +391,15 @@
       <pre class="lines">
 
 
-182
-183
-184</pre>
+193
+194
+195</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 182</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 193</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_step'>step</span><span class='comma'>,</span> <span class='id identifier rubyid_step_name'>step_name</span><span class='comma'>,</span> <span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span>
-  <span class='ivar'>@step</span><span class='comma'>,</span> <span class='ivar'>@step_name</span><span class='comma'>,</span> <span class='ivar'>@result</span> <span class='op'>=</span> <span class='id identifier rubyid_step'>step</span><span class='comma'>,</span> <span class='id identifier rubyid_step_name'>step_name</span><span class='comma'>,</span> <span class='id identifier rubyid_result'>result</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_step'>step</span><span class='comma'>,</span> <span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span>
+  <span class='ivar'>@step</span><span class='comma'>,</span> <span class='ivar'>@result</span> <span class='op'>=</span> <span class='id identifier rubyid_step'>step</span><span class='comma'>,</span> <span class='id identifier rubyid_result'>result</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -463,137 +457,15 @@
       <pre class="lines">
 
 
-196
-197
-198</pre>
+209
+210
+211</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 196</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 209</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_result'>result</span>
   <span class='ivar'>@result</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      
-      <span id="step=-instance_method"></span>
-      <div class="method_details ">
-  <h3 class="signature " id="step-instance_method">
-  
-    #<strong>step</strong>  &#x21d2; <tt><span class='object_link'><a href="../Operation.html" title="Teckel::Operation (module)">Teckel::Operation</a></span></tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Returns the failed Operation.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt><span class='object_link'><a href="../Operation.html" title="Teckel::Operation (module)">Teckel::Operation</a></span></tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>the failed Operation</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-188
-189
-190</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 188</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_step'>step</span>
-  <span class='ivar'>@step</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      
-      <span id="step_name=-instance_method"></span>
-      <div class="method_details ">
-  <h3 class="signature " id="step_name-instance_method">
-  
-    #<strong>step_name</strong>  &#x21d2; <tt>String</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Returns the step name of the failed Operation.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>the step name of the failed Operation</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-192
-193
-194</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 192</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_step_name'>step_name</span>
-  <span class='ivar'>@step_name</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -640,10 +512,10 @@
       <pre class="lines">
 
 
-213</pre>
+226</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 213</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 226</span>
 
 <span class='id identifier rubyid_def_delegators'>def_delegators</span> <span class='symbol'>:@result</span><span class='comma'>,</span> <span class='symbol'>:value</span><span class='comma'>,</span> <span class='symbol'>:successful?</span><span class='comma'>,</span> <span class='symbol'>:success</span><span class='comma'>,</span> <span class='symbol'>:failure?</span><span class='comma'>,</span> <span class='symbol'>:failure</span></pre>
     </td>
@@ -684,12 +556,122 @@
       <pre class="lines">
 
 
-213</pre>
+226</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 213</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 226</span>
 
 <span class='id identifier rubyid_def_delegators'>def_delegators</span> <span class='symbol'>:@result</span><span class='comma'>,</span> <span class='symbol'>:value</span><span class='comma'>,</span> <span class='symbol'>:successful?</span><span class='comma'>,</span> <span class='symbol'>:success</span><span class='comma'>,</span> <span class='symbol'>:failure?</span><span class='comma'>,</span> <span class='symbol'>:failure</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="operation-instance_method">
+  
+    #<strong>operation</strong>  &#x21d2; <tt><span class='object_link'><a href="../Operation.html" title="Teckel::Operation (module)">Teckel::Operation</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Delegates to <code>step.operation</code></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Operation.html" title="Teckel::Operation (module)">Teckel::Operation</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The failed Operation class.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+205</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 205</span>
+
+<span class='id identifier rubyid_def_delegator'>def_delegator</span> <span class='symbol'>:@step</span><span class='comma'>,</span> <span class='symbol'>:operation</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="step-instance_method">
+  
+    #<strong>step</strong>  &#x21d2; <tt>String</tt>, <tt>Symbol</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Delegates to <code>step.name</code></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>, <tt>Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The name of the failed operation.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+200</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 200</span>
+
+<span class='id identifier rubyid_def_delegator'>def_delegator</span> <span class='symbol'>:@step</span><span class='comma'>,</span> <span class='symbol'>:name</span><span class='comma'>,</span> <span class='symbol'>:step</span></pre>
     </td>
   </tr>
 </table>
@@ -728,10 +710,10 @@
       <pre class="lines">
 
 
-213</pre>
+226</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 213</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 226</span>
 
 <span class='id identifier rubyid_def_delegators'>def_delegators</span> <span class='symbol'>:@result</span><span class='comma'>,</span> <span class='symbol'>:value</span><span class='comma'>,</span> <span class='symbol'>:successful?</span><span class='comma'>,</span> <span class='symbol'>:success</span><span class='comma'>,</span> <span class='symbol'>:failure?</span><span class='comma'>,</span> <span class='symbol'>:failure</span></pre>
     </td>
@@ -772,10 +754,10 @@
       <pre class="lines">
 
 
-213</pre>
+226</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 213</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 226</span>
 
 <span class='id identifier rubyid_def_delegators'>def_delegators</span> <span class='symbol'>:@result</span><span class='comma'>,</span> <span class='symbol'>:value</span><span class='comma'>,</span> <span class='symbol'>:successful?</span><span class='comma'>,</span> <span class='symbol'>:success</span><span class='comma'>,</span> <span class='symbol'>:failure?</span><span class='comma'>,</span> <span class='symbol'>:failure</span></pre>
     </td>
@@ -816,10 +798,10 @@
       <pre class="lines">
 
 
-213</pre>
+226</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 213</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 226</span>
 
 <span class='id identifier rubyid_def_delegators'>def_delegators</span> <span class='symbol'>:@result</span><span class='comma'>,</span> <span class='symbol'>:value</span><span class='comma'>,</span> <span class='symbol'>:successful?</span><span class='comma'>,</span> <span class='symbol'>:success</span><span class='comma'>,</span> <span class='symbol'>:failure?</span><span class='comma'>,</span> <span class='symbol'>:failure</span></pre>
     </td>
@@ -832,7 +814,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Jan 14 20:38:45 2020 by
+  Generated on Wed Jan 15 16:35:58 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.6.3).
 </div>

@@ -368,6 +368,28 @@
 </li>
 
       
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#steps-instance_method" title="#steps (instance method)">#<strong>steps</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
     </ul>
   
 
@@ -424,7 +446,7 @@
 </pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 323</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 340</span>
 
 </pre>
     </td>
@@ -545,12 +567,12 @@
       <pre class="lines">
 
 
-319
-320
-321</pre>
+336
+337
+338</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 319</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 336</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_around'>around</span><span class='lparen'>(</span><span class='id identifier rubyid_callable'>callable</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='ivar'>@config</span><span class='period'>.</span><span class='id identifier rubyid_for'>for</span><span class='lparen'>(</span><span class='symbol'>:around</span><span class='comma'>,</span> <span class='id identifier rubyid_callable'>callable</span> <span class='op'>||</span> <span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
@@ -624,20 +646,20 @@
       <pre class="lines">
 
 
-341
-342
-343
-344
-345
-346
-347
-348</pre>
+358
+359
+360
+361
+362
+363
+364
+365</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 341</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 358</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='id identifier rubyid_input'>input</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_runner'>runner</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_runner'>runner</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@steps</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_runner'>runner</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_runner'>runner</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_steps'>steps</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_around'>around</span>
     <span class='id identifier rubyid_around'>around</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='id identifier rubyid_runner'>runner</span><span class='comma'>,</span> <span class='id identifier rubyid_input'>input</span><span class='rparen'>)</span>
   <span class='kw'>else</span>
@@ -664,27 +686,31 @@
       <pre class="lines">
 
 
-370
-371
-372
-373
-374
-375
-376
-377
-378
-379</pre>
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 370</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 398</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_clone'>clone</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_frozen?'>frozen?</span>
     <span class='kw'>super</span>
   <span class='kw'>else</span>
     <span class='kw'>super</span><span class='period'>.</span><span class='id identifier rubyid_tap'>tap</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_copy'>copy</span><span class='op'>|</span>
-      <span class='id identifier rubyid_copy'>copy</span><span class='period'>.</span><span class='id identifier rubyid_instance_variable_set'>instance_variable_set</span><span class='lparen'>(</span><span class='symbol'>:@steps</span><span class='comma'>,</span> <span class='ivar'>@steps</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span><span class='rparen'>)</span>
-      <span class='id identifier rubyid_copy'>copy</span><span class='period'>.</span><span class='id identifier rubyid_instance_variable_set'>instance_variable_set</span><span class='lparen'>(</span><span class='symbol'>:@config</span><span class='comma'>,</span> <span class='ivar'>@config</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_new_config'>new_config</span> <span class='op'>=</span> <span class='ivar'>@config</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span>
+      <span class='id identifier rubyid_new_config'>new_config</span><span class='period'>.</span><span class='id identifier rubyid_replace'>replace</span><span class='lparen'>(</span><span class='symbol'>:steps</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_steps'>steps</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span> <span class='rbrace'>}</span>
+
+      <span class='id identifier rubyid_copy'>copy</span><span class='period'>.</span><span class='id identifier rubyid_instance_variable_set'>instance_variable_set</span><span class='lparen'>(</span><span class='symbol'>:@config</span><span class='comma'>,</span> <span class='id identifier rubyid_new_config'>new_config</span><span class='rparen'>)</span>
     <span class='kw'>end</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
@@ -708,20 +734,24 @@
       <pre class="lines">
 
 
-362
-363
-364
-365
-366
-367</pre>
+388
+389
+390
+391
+392
+393
+394
+395</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 362</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 388</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_dup'>dup</span>
   <span class='kw'>super</span><span class='period'>.</span><span class='id identifier rubyid_tap'>tap</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_copy'>copy</span><span class='op'>|</span>
-    <span class='id identifier rubyid_copy'>copy</span><span class='period'>.</span><span class='id identifier rubyid_instance_variable_set'>instance_variable_set</span><span class='lparen'>(</span><span class='symbol'>:@steps</span><span class='comma'>,</span> <span class='ivar'>@steps</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_copy'>copy</span><span class='period'>.</span><span class='id identifier rubyid_instance_variable_set'>instance_variable_set</span><span class='lparen'>(</span><span class='symbol'>:@config</span><span class='comma'>,</span> <span class='ivar'>@config</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_new_config'>new_config</span> <span class='op'>=</span> <span class='ivar'>@config</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span>
+    <span class='id identifier rubyid_new_config'>new_config</span><span class='period'>.</span><span class='id identifier rubyid_replace'>replace</span><span class='lparen'>(</span><span class='symbol'>:steps</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_steps'>steps</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span> <span class='rbrace'>}</span>
+
+    <span class='id identifier rubyid_copy'>copy</span><span class='period'>.</span><span class='id identifier rubyid_instance_variable_set'>instance_variable_set</span><span class='lparen'>(</span><span class='symbol'>:@config</span><span class='comma'>,</span> <span class='id identifier rubyid_new_config'>new_config</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -773,19 +803,19 @@
       <pre class="lines">
 
 
-262
-263
-264
-265
-266
-267</pre>
+275
+276
+277
+278
+279
+280</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 262</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 275</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_errors'>errors</span>
-  <span class='ivar'>@steps</span><span class='period'>.</span><span class='id identifier rubyid_each_with_object'>each_with_object</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_e'>e</span><span class='comma'>,</span> <span class='id identifier rubyid_m'>m</span><span class='op'>|</span>
-    <span class='id identifier rubyid_err'>err</span> <span class='op'>=</span> <span class='id identifier rubyid_e'>e</span><span class='period'>.</span><span class='id identifier rubyid_last'>last</span><span class='op'>&amp;.</span><span class='id identifier rubyid_error'>error</span>
+  <span class='id identifier rubyid_steps'>steps</span><span class='period'>.</span><span class='id identifier rubyid_each_with_object'>each_with_object</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_step'>step</span><span class='comma'>,</span> <span class='id identifier rubyid_m'>m</span><span class='op'>|</span>
+    <span class='id identifier rubyid_err'>err</span> <span class='op'>=</span> <span class='id identifier rubyid_step'>step</span><span class='period'>.</span><span class='id identifier rubyid_operation'>operation</span><span class='period'>.</span><span class='id identifier rubyid_error'>error</span>
     <span class='id identifier rubyid_m'>m</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_err'>err</span> <span class='kw'>if</span> <span class='id identifier rubyid_err'>err</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
@@ -838,20 +868,22 @@
       <pre class="lines">
 
 
-354
-355
-356
-357
-358
-359</pre>
+379
+380
+381
+382
+383
+384
+385</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 354</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 379</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_finalize!'>finalize!</span>
-  <span class='id identifier rubyid_freeze'>freeze</span>
-  <span class='ivar'>@steps</span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span>
+  <span class='id identifier rubyid_define!'>define!</span>
+  <span class='id identifier rubyid_steps'>steps</span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span>
   <span class='ivar'>@config</span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span>
+  <span class='id identifier rubyid_freeze'>freeze</span>
   <span class='kw'>self</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -903,15 +935,15 @@
       <pre class="lines">
 
 
-250
-251
-252</pre>
+263
+264
+265</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 250</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 263</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_input'>input</span>
-  <span class='ivar'>@steps</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span><span class='op'>&amp;.</span><span class='id identifier rubyid_last'>last</span><span class='op'>&amp;.</span><span class='id identifier rubyid_input'>input</span>
+  <span class='id identifier rubyid_steps'>steps</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span><span class='op'>&amp;.</span><span class='id identifier rubyid_operation'>operation</span><span class='op'>&amp;.</span><span class='id identifier rubyid_input'>input</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -962,15 +994,15 @@
       <pre class="lines">
 
 
-256
-257
-258</pre>
+269
+270
+271</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 256</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 269</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_output'>output</span>
-  <span class='ivar'>@steps</span><span class='period'>.</span><span class='id identifier rubyid_last'>last</span><span class='op'>&amp;.</span><span class='id identifier rubyid_last'>last</span><span class='op'>&amp;.</span><span class='id identifier rubyid_output'>output</span>
+  <span class='id identifier rubyid_steps'>steps</span><span class='period'>.</span><span class='id identifier rubyid_last'>last</span><span class='op'>&amp;.</span><span class='id identifier rubyid_operation'>operation</span><span class='op'>&amp;.</span><span class='id identifier rubyid_output'>output</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1025,12 +1057,12 @@
       <pre class="lines">
 
 
-330
-331
-332</pre>
+347
+348
+349</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 330</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 347</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_runner'>runner</span><span class='lparen'>(</span><span class='id identifier rubyid_klass'>klass</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='ivar'>@config</span><span class='period'>.</span><span class='id identifier rubyid_for'>for</span><span class='lparen'>(</span><span class='symbol'>:runner</span><span class='comma'>,</span> <span class='id identifier rubyid_klass'>klass</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='const'><span class='object_link'><a href="Runner.html" title="Teckel::Chain::Runner (class)">Runner</a></span></span> <span class='rbrace'>}</span>
@@ -1102,15 +1134,45 @@
       <pre class="lines">
 
 
-275
-276
-277</pre>
+288
+289
+290</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 275</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 288</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_step'>step</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_operation'>operation</span><span class='rparen'>)</span>
-  <span class='ivar'>@steps</span> <span class='op'>&lt;&lt;</span> <span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_operation'>operation</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_steps'>steps</span> <span class='op'>&lt;&lt;</span> <span class='const'><span class='object_link'><a href="Step.html" title="Teckel::Chain::Step (class)">Step</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_operation'>operation</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="steps-instance_method">
+  
+    #<strong>steps</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+292
+293
+294</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 292</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_steps'>steps</span>
+  <span class='ivar'>@config</span><span class='period'>.</span><span class='id identifier rubyid_for'>for</span><span class='lparen'>(</span><span class='symbol'>:steps</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='lbracket'>[</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1122,7 +1184,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Jan 14 20:38:45 2020 by
+  Generated on Wed Jan 15 16:35:58 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.6.3).
 </div>

@@ -172,20 +172,20 @@
 
 <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='const'>MyChain</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Bob</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>age:</span> <span class='int'>23</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_result'>result</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../Teckel.html" title="Teckel (module)">Teckel</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Result.html" title="Teckel::Result (class)">Result</a></span></span><span class='rparen'>)</span>          <span class='comment'>#=&gt; true
-</span><span class='id identifier rubyid_result'>result</span><span class='period'>.</span><span class='id identifier rubyid_success'>success</span><span class='lbracket'>[</span><span class='symbol'>:user</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>User</span><span class='rparen'>)</span>    <span class='comment'>#=&gt; true
-</span><span class='id identifier rubyid_result'>result</span><span class='period'>.</span><span class='id identifier rubyid_success'>success</span><span class='lbracket'>[</span><span class='symbol'>:friend</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>User</span><span class='rparen'>)</span>  <span class='comment'>#=&gt; true
+</span><span class='id identifier rubyid_result'>result</span><span class='period'>.</span><span class='id identifier rubyid_success'>success</span><span class='lbracket'>[</span><span class='symbol'>:user</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>User</span><span class='rparen'>)</span>     <span class='comment'>#=&gt; true
+</span><span class='id identifier rubyid_result'>result</span><span class='period'>.</span><span class='id identifier rubyid_success'>success</span><span class='lbracket'>[</span><span class='symbol'>:friend</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>User</span><span class='rparen'>)</span>   <span class='comment'>#=&gt; true
 </span>
 <span class='const'>AddFriend</span><span class='period'>.</span><span class='id identifier rubyid_fail_befriend'>fail_befriend</span> <span class='op'>=</span> <span class='kw'>true</span>
 <span class='id identifier rubyid_failure_result'>failure_result</span> <span class='op'>=</span> <span class='const'>MyChain</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Bob</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>age:</span> <span class='int'>23</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_failure_result'>failure_result</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../Teckel.html" title="Teckel (module)">Teckel</a></span></span><span class='op'>::</span><span class='const'>Chain</span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Chain/StepFailure.html" title="Teckel::Chain::StepFailure (class)">StepFailure</a></span></span><span class='rparen'>)</span> <span class='comment'>#=&gt; true
 </span>
 <span class='comment'># additional step information
-</span><span class='id identifier rubyid_failure_result'>failure_result</span><span class='period'>.</span><span class='id identifier rubyid_step_name'>step_name</span>                        <span class='comment'>#=&gt; :befriend
-</span><span class='id identifier rubyid_failure_result'>failure_result</span><span class='period'>.</span><span class='id identifier rubyid_step'>step</span>                             <span class='comment'>#=&gt; AddFriend
+</span><span class='id identifier rubyid_failure_result'>failure_result</span><span class='period'>.</span><span class='id identifier rubyid_step'>step</span>                   <span class='comment'>#=&gt; :befriend
+</span><span class='id identifier rubyid_failure_result'>failure_result</span><span class='period'>.</span><span class='id identifier rubyid_operation'>operation</span>              <span class='comment'>#=&gt; AddFriend
 </span>
 <span class='comment'># otherwise behaves just like a normal +Result+
-</span><span class='id identifier rubyid_failure_result'>failure_result</span><span class='period'>.</span><span class='id identifier rubyid_failure?'>failure?</span>                         <span class='comment'>#=&gt; true
-</span><span class='id identifier rubyid_failure_result'>failure_result</span><span class='period'>.</span><span class='id identifier rubyid_failure'>failure</span>                          <span class='comment'>#=&gt; {message: &quot;Did not find a friend.&quot;}</span></code></pre>
+</span><span class='id identifier rubyid_failure_result'>failure_result</span><span class='period'>.</span><span class='id identifier rubyid_failure?'>failure?</span>               <span class='comment'>#=&gt; true
+</span><span class='id identifier rubyid_failure_result'>failure_result</span><span class='period'>.</span><span class='id identifier rubyid_failure'>failure</span>                <span class='comment'>#=&gt; {message: &quot;Did not find a friend.&quot;}</span></code></pre>
     
       
         <p class="example_title"><div class='inline'>
@@ -262,15 +262,15 @@
 <span class='id identifier rubyid_failure_result'>failure_result</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../Teckel.html" title="Teckel (module)">Teckel</a></span></span><span class='op'>::</span><span class='const'>Chain</span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Chain/StepFailure.html" title="Teckel::Chain::StepFailure (class)">StepFailure</a></span></span><span class='rparen'>)</span> <span class='comment'>#=&gt; true
 </span>
 <span class='comment'># triggered DB rollback
-</span><span class='const'>LOG</span>                                              <span class='comment'>#=&gt; [:before, :rollback]
+</span><span class='const'>LOG</span>                                   <span class='comment'>#=&gt; [:before, :rollback]
 </span>
 <span class='comment'># additional step information
-</span><span class='id identifier rubyid_failure_result'>failure_result</span><span class='period'>.</span><span class='id identifier rubyid_step_name'>step_name</span>                         <span class='comment'>#=&gt; :befriend
-</span><span class='id identifier rubyid_failure_result'>failure_result</span><span class='period'>.</span><span class='id identifier rubyid_step'>step</span>                              <span class='comment'>#=&gt; AddFriend
+</span><span class='id identifier rubyid_failure_result'>failure_result</span><span class='period'>.</span><span class='id identifier rubyid_step'>step</span>                   <span class='comment'>#=&gt; :befriend
+</span><span class='id identifier rubyid_failure_result'>failure_result</span><span class='period'>.</span><span class='id identifier rubyid_operation'>operation</span>              <span class='comment'>#=&gt; AddFriend
 </span>
 <span class='comment'># otherwise behaves just like a normal +Result+
-</span><span class='id identifier rubyid_failure_result'>failure_result</span><span class='period'>.</span><span class='id identifier rubyid_failure?'>failure?</span>                          <span class='comment'>#=&gt; true
-</span><span class='id identifier rubyid_failure_result'>failure_result</span><span class='period'>.</span><span class='id identifier rubyid_failure'>failure</span>                           <span class='comment'>#=&gt; {message: &quot;Did not find a friend.&quot;}</span></code></pre>
+</span><span class='id identifier rubyid_failure_result'>failure_result</span><span class='period'>.</span><span class='id identifier rubyid_failure?'>failure?</span>               <span class='comment'>#=&gt; true
+</span><span class='id identifier rubyid_failure_result'>failure_result</span><span class='period'>.</span><span class='id identifier rubyid_failure'>failure</span>                <span class='comment'>#=&gt; {message: &quot;Did not find a friend.&quot;}</span></code></pre>
     
   </div>
 
@@ -290,7 +290,7 @@
     
   
     
-      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Chain/Runner.html" title="Teckel::Chain::Runner (class)">Runner</a></span>, <span class='object_link'><a href="Chain/StepFailure.html" title="Teckel::Chain::StepFailure (class)">StepFailure</a></span>
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Chain/Runner.html" title="Teckel::Chain::Runner (class)">Runner</a></span>, <span class='object_link'><a href="Chain/Step.html" title="Teckel::Chain::Step (class)">Step</a></span>, <span class='object_link'><a href="Chain/StepFailure.html" title="Teckel::Chain::StepFailure (class)">StepFailure</a></span>
     
   
 </p>
@@ -355,23 +355,21 @@
       <pre class="lines">
 
 
-382
-383
-384
-385
-386
-387
-388
-389</pre>
+412
+413
+414
+415
+416
+417
+418</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 382</span>
+      <pre class="code"><span class="info file"># File 'lib/teckel/chain.rb', line 412</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_included'>included</span><span class='lparen'>(</span><span class='id identifier rubyid_receiver'>receiver</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_receiver'>receiver</span><span class='period'>.</span><span class='id identifier rubyid_extend'>extend</span> <span class='const'><span class='object_link'><a href="Chain/ClassMethods.html" title="Teckel::Chain::ClassMethods (module)">ClassMethods</a></span></span>
 
   <span class='id identifier rubyid_receiver'>receiver</span><span class='period'>.</span><span class='id identifier rubyid_class_eval'>class_eval</span> <span class='kw'>do</span>
-    <span class='ivar'>@steps</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
     <span class='ivar'>@config</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Config.html" title="Teckel::Config (class)">Config</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
@@ -385,7 +383,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Jan 14 20:38:45 2020 by
+  Generated on Wed Jan 15 16:35:58 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.6.3).
 </div>
